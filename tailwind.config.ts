@@ -5,47 +5,77 @@ const config: Config = {
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./data/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
     extend: {
       colors: {
-        canvas: {
-          DEFAULT: "#FBF9F5",
-          subtle: "#F7F5F0",
-          alt: "#EFECE6",
+        // Dark Editorial Beauty-Tech System
+        noir: {
+          DEFAULT: "#060608",
+          deep: "#030304",
+          card: "#0D0D12",
+          surface: "#121218",
+          border: "rgba(255, 255, 255, 0.08)",
+          hover: "#181822",
         },
-        surface: {
-          DEFAULT: "#FFFFFF",
-          hairline: "#E9E6DF",
-          hover: "#FAFAF8",
+        hotpink: {
+          DEFAULT: "#FF007F",
+          vibrant: "#FF006E",
+          magenta: "#FF1493",
+          light: "#FFA0D2",
+          glow: "rgba(255, 0, 127, 0.35)",
+          subtle: "rgba(255, 0, 127, 0.08)",
+          deep: "#D6006B",
         },
-        onyx: {
-          DEFAULT: "#191817",
-          soft: "#292725",
-          muted: "#6E6B65",
-          dim: "#A39E96",
-        },
-        sage: {
-          50: "#F2F6F3",
-          100: "#E3ECE6",
-          500: "#3B6350",
-          600: "#2D5A43",
-          700: "#244835",
-          900: "#13271C",
-        },
+
+        // Soft Aesthetic Pastel System (retained for backward compatibility)
+        "pastel-pink": "#FFD5E5",
+        "pastel-pink-subtle": "#FFEAF2",
+        "pastel-pink-card": "#FFE3EE",
+        "pastel-pink-border": "#F3ADC8",
+
+        "pastel-green": "#D2F5DC",
+        "pastel-green-subtle": "#E8FBEF",
+        "pastel-green-card": "#C2EED0",
+        "pastel-green-border": "#9FE0B3",
+
+        "pastel-lavender": "#EAE0FF",
+        "pastel-lavender-subtle": "#F5EFFF",
+        "pastel-lavender-card": "#DFD0FF",
+        "pastel-lavender-border": "#C8B4FA",
+
+        "ink-navy": "#192231",
+        "ink-soft": "#334155",
+        "ink-muted": "#64748B",
       },
       fontFamily: {
-        sans: ["var(--font-sans)", "Inter", "-apple-system", "BlinkMacSystemFont", "sans-serif"],
-        mono: ["var(--font-mono)", "JetBrains Mono", "monospace"],
+        sans: ["'Space Grotesk'", "system-ui", "-apple-system", "sans-serif"],
+        body: ["'Space Grotesk'", "sans-serif"],
+        display: ["'Space Grotesk'", "system-ui", "sans-serif"],
+        fredoka: ["'Fredoka'", "'Nunito'", "sans-serif"],
+        space: ["'Space Grotesk'", "sans-serif"],
       },
       letterSpacing: {
-        micro: "0.18em",
-        tightest: "-0.03em",
+        editorial: "0.08em",
+        wideish: "0.03em",
+        tightish: "-0.02em",
       },
-      boxShadow: {
-        editorial: "0 10px 30px -10px rgba(25, 24, 23, 0.05)",
-        "editorial-hover": "0 20px 45px -15px rgba(25, 24, 23, 0.1)",
-        "pill-inset": "inset 0 1px 1px rgba(255, 255, 255, 0.6)",
+      animation: {
+        "float-slow": "float 8s ease-in-out infinite",
+        "float-delayed": "float 9s ease-in-out 3s infinite",
+        "spin-very-slow": "spin 50s linear infinite",
+        "pulse-glow": "pulseGlow 4s ease-in-out infinite",
+      },
+      keyframes: {
+        float: {
+          "0%, 100%": { transform: "translateY(0px) rotate(0deg)" },
+          "50%": { transform: "translateY(-14px) rotate(2deg)" },
+        },
+        pulseGlow: {
+          "0%, 100%": { opacity: "0.35", transform: "scale(1)" },
+          "50%": { opacity: "0.7", transform: "scale(1.05)" },
+        },
       },
     },
   },
