@@ -106,21 +106,37 @@ export const Chapter3Calendar: React.FC = () => {
       <div className="absolute bottom-20 -left-32 w-96 h-96 bg-teal-300/20 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="max-w-6xl mx-auto w-full space-y-12 my-auto z-10">
-        {/* Section Header: EXACT STARTING HEADLINE AS REQUESTED */}
-        <div className="max-w-3xl space-y-3">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/15 border border-white/25 text-yellow-300 text-xs font-mono uppercase tracking-[0.16em] font-bold">
-            <CalendarIcon className="w-3.5 h-3.5" />
-            <span>Chapter 03 · Your Daily Beauty Calendar</span>
+        {/* Section Header: Title on Left, Uploaded Reading Avatar on Right */}
+        <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-8 pt-2">
+          {/* Left Column: Headline & Quotes */}
+          <div className="max-w-2xl space-y-3">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/15 border border-white/25 text-yellow-300 text-xs font-mono uppercase tracking-[0.16em] font-bold">
+              <CalendarIcon className="w-3.5 h-3.5" />
+              <span>Chapter 03 · Your Daily Beauty Calendar</span>
+            </div>
+
+            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-light tracking-tight text-white leading-[1.08]">
+              Your roadmap connects directly <br className="hidden sm:inline" />
+              <span className="font-normal italic text-yellow-200">to what you do each day.</span>
+            </h2>
+
+            <p className="text-xl sm:text-2xl text-emerald-100 font-light italic">
+              &ldquo;Not everything belongs in every day.&rdquo;
+            </p>
           </div>
 
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-light tracking-tight text-white leading-[1.08]">
-            Your roadmap connects directly <br className="hidden sm:inline" />
-            <span className="font-normal italic text-yellow-200">to what you do each day.</span>
-          </h2>
-
-          <p className="text-xl sm:text-2xl text-emerald-100 font-light italic">
-            &ldquo;Not everything belongs in every day.&rdquo;
-          </p>
+          {/* Right Column: Uploaded Reading Avatar (sitting cross-legged with orange book) */}
+          <div className="flex justify-center lg:justify-end shrink-0">
+            <div className="relative w-60 sm:w-72 lg:w-80 aspect-[854/1024] drop-shadow-2xl">
+              <Image
+                src="/characters/character-reading-avatar.png"
+                alt="BioPass user calmly following and understanding their beauty roadmap"
+                fill
+                priority
+                className="object-contain"
+              />
+            </div>
+          </div>
         </div>
 
         {/* CALENDAR CONTROLS & COLOR LEGEND */}
@@ -151,7 +167,7 @@ export const Chapter3Calendar: React.FC = () => {
           </div>
         </div>
 
-        {/* DOMINANT VISUAL: LARGE 7-DAY BEAUTY CALENDAR GRID + CHARACTER */}
+        {/* DOMINANT VISUAL: LARGE 7-DAY BEAUTY CALENDAR GRID (Completely Unobstructed) */}
         <div className="relative">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-7 gap-3.5 sm:gap-4 relative z-10">
             {calendarDays.map((item, idx) => {
@@ -221,16 +237,6 @@ export const Chapter3Calendar: React.FC = () => {
                 </div>
               );
             })}
-          </div>
-
-          {/* Uploaded 3D Character Overlapping the Calendar (Happily following plan!) */}
-          <div className="hidden lg:block absolute -top-16 -right-10 w-44 aspect-[1/1] z-20 pointer-events-none drop-shadow-2xl">
-            <Image
-              src="/characters/character-singing-microphone.png"
-              alt="BioPass user happily following their beauty routine"
-              fill
-              className="object-contain"
-            />
           </div>
         </div>
 

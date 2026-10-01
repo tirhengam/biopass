@@ -80,137 +80,240 @@ export const Chapter1Hero: React.FC<Chapter1HeroProps> = ({
           </div>
         </div>
 
-        {/* Right Column: Conceptual Dashboard Schematic with 5 Products + 3D Character */}
+        {/* Right Column: Personal BioPass Dashboard + 3D Character */}
         <div className="lg:col-span-6 relative flex justify-center items-center">
           {/* Main Dashboard Card */}
-          <div className="relative w-full max-w-lg rounded-3xl p-6 sm:p-7 bg-[#2A184D]/90 border border-white/20 backdrop-blur-2xl shadow-[0_25px_60px_rgba(0,0,0,0.5)] space-y-4 z-10">
-            {/* Header: Goal & Streak */}
-            <div className="flex items-center justify-between pb-3.5 border-b border-white/10">
-              <div>
-                <span className="text-[10px] font-mono uppercase tracking-widest text-purple-300 block font-semibold">
-                  ACTIVE ROADMAP · DAY 12
-                </span>
-                <div className="text-sm sm:text-base font-semibold text-white flex items-center gap-2 mt-0.5">
-                  <span className="w-2 h-2 rounded-full bg-yellow-400 shadow-[0_0_8px_rgba(250,204,21,0.8)]" />
-                  <span>Goal: Barrier Resilience &amp; Glow</span>
-                </div>
-              </div>
-
-              <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-400/20 border border-amber-400/40 text-amber-300 text-xs font-mono font-bold">
-                <Flame className="w-3.5 h-3.5 text-amber-400 fill-amber-400" />
-                <span>8 Day Streak</span>
+          <div className="relative w-full max-w-lg rounded-3xl p-6 sm:p-7 bg-[#2A184D]/90 border border-white/20 backdrop-blur-2xl shadow-[0_25px_60px_rgba(0,0,0,0.5)] space-y-5 z-10">
+            {/* Header: MY BIOPASS & LEVEL 04 */}
+            <div className="flex items-center justify-between pb-3 border-b border-white/10">
+              <span className="text-[11px] font-mono uppercase tracking-[0.2em] text-purple-300/90 font-bold">
+                MY BIOPASS
+              </span>
+              <div className="px-2.5 py-0.5 rounded-full bg-purple-500/25 border border-purple-400/30 text-[10px] font-mono text-purple-200 font-bold tracking-wider">
+                LEVEL 04
               </div>
             </div>
 
-            {/* Daily Routine Rhythm Badge */}
-            <div className="flex items-center justify-between px-3.5 py-2 rounded-xl bg-black/20 border border-white/10 text-[11px] font-mono text-purple-200">
-              <span className="text-white font-medium">Today: Vitamin C Day</span>
-              <div className="flex items-center gap-2">
-                <span className="w-2.5 h-2.5 rounded-full bg-purple-400" title="Mon: Niacinamide" />
-                <span className="w-2.5 h-2.5 rounded-full bg-amber-400 ring-2 ring-white" title="Today: Vitamin C" />
-                <span className="w-2.5 h-2.5 rounded-full bg-sky-400" title="Wed: Peptide" />
-                <span className="w-2.5 h-2.5 rounded-full border-2 border-stone-300" title="Thu: Rest" />
-              </div>
-            </div>
-
-            {/* 5 COSMETIC PRODUCTS ORGANIZED IN USER ROUTINE */}
-            <div className="space-y-2">
-              <div className="flex items-center justify-between text-[11px] font-mono uppercase tracking-wider text-purple-300/80 px-1 font-semibold">
-                <span>Personal Routine (5 Products)</span>
-                <span className="text-emerald-400">AM Active · PM Scheduled</span>
-              </div>
-
-              {/* Product 01: Gentle Cleanser */}
-              <div className="p-2.5 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-between hover:bg-white/10 transition-colors">
-                <div className="flex items-center gap-3">
-                  <div className="w-7 h-7 rounded-xl bg-purple-900/50 border border-purple-400/30 flex items-center justify-center text-purple-200 text-xs font-mono font-bold shrink-0">
-                    01
-                  </div>
-                  <div>
-                    <div className="text-xs font-semibold text-white">Gentle Milky Cleanser</div>
-                    <div className="text-[10px] text-purple-200/70 font-mono">Low-pH Amino Base · AM Step 1</div>
-                  </div>
-                </div>
-                <span className="px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 text-[10px] font-mono border border-emerald-500/40 flex items-center gap-1 font-semibold">
-                  <Check className="w-3 h-3 stroke-[3]" /> Done
+            {/* Current Goals: Compact Visual Chips */}
+            <div className="space-y-1.5">
+              <span className="text-[10px] font-mono uppercase tracking-widest text-purple-300/70 block font-semibold">
+                MY CURRENT GOALS
+              </span>
+              <div className="flex items-center gap-2.5 flex-wrap">
+                <span className="px-3.5 py-1.5 rounded-full bg-white/10 border border-white/20 text-xs font-mono font-bold text-white shadow-sm flex items-center gap-1.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-yellow-300" />
+                  LARGE PORES
                 </span>
-              </div>
-
-              {/* Product 02: Active Serum (Today's Key Active) */}
-              <div className="p-2.5 rounded-2xl bg-amber-500/20 border border-amber-400/50 flex items-center justify-between">
-                <div className="flex items-center gap-3">
-                  <div className="w-7 h-7 rounded-xl bg-amber-500/30 border border-amber-400/60 flex items-center justify-center text-amber-200 text-xs font-mono font-bold shrink-0">
-                    02
-                  </div>
-                  <div>
-                    <div className="text-xs font-semibold text-white flex items-center gap-1.5">
-                      <span>10% Ascorbyl Glucoside Serum</span>
-                      <span className="w-1.5 h-1.5 rounded-full bg-amber-400 shadow-[0_0_6px_#F59E0B]" />
-                    </div>
-                    <div className="text-[10px] text-amber-200 font-mono">Antioxidant &amp; Glow · Today&apos;s Active</div>
-                  </div>
-                </div>
-                <span className="px-2 py-0.5 rounded-full bg-amber-400/25 text-amber-200 text-[10px] font-mono border border-amber-400/40 flex items-center gap-1 font-semibold">
-                  <Sun className="w-3 h-3" /> AM Slot
-                </span>
-              </div>
-
-              {/* Product 03: Ceramide Barrier Gel-Cream */}
-              <div className="p-2.5 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-between hover:bg-white/10 transition-colors">
-                <div className="flex items-center gap-3">
-                  <div className="w-7 h-7 rounded-xl bg-purple-900/50 border border-purple-400/30 flex items-center justify-center text-purple-200 text-xs font-mono font-bold shrink-0">
-                    03
-                  </div>
-                  <div>
-                    <div className="text-xs font-semibold text-white">Ceramide Barrier Gel-Cream</div>
-                    <div className="text-[10px] text-purple-200/70 font-mono">3:1:1 Essential Lipids · AM Step 3</div>
-                  </div>
-                </div>
-                <span className="px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 text-[10px] font-mono border border-emerald-500/40 flex items-center gap-1 font-semibold">
-                  <Check className="w-3 h-3 stroke-[3]" /> Done
-                </span>
-              </div>
-
-              {/* Product 04: Mineral Shield SPF 50+ */}
-              <div className="p-2.5 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-between hover:bg-white/10 transition-colors">
-                <div className="flex items-center gap-3">
-                  <div className="w-7 h-7 rounded-xl bg-purple-900/50 border border-purple-400/30 flex items-center justify-center text-purple-200 text-xs font-mono font-bold shrink-0">
-                    04
-                  </div>
-                  <div>
-                    <div className="text-xs font-semibold text-white">Mineral UV Fluid SPF 50+</div>
-                    <div className="text-[10px] text-purple-200/70 font-mono">Broad Spectrum Defense · AM Step 4</div>
-                  </div>
-                </div>
-                <span className="px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 text-[10px] font-mono border border-emerald-500/40 flex items-center gap-1 font-semibold">
-                  <Check className="w-3 h-3 stroke-[3]" /> Done
-                </span>
-              </div>
-
-              {/* Product 05: Evening Peptide Emulsion */}
-              <div className="p-2.5 rounded-2xl bg-indigo-950/40 border border-indigo-400/30 flex items-center justify-between">
-                <div className="flex items-center gap-3">
-                  <div className="w-7 h-7 rounded-xl bg-indigo-900/50 border border-indigo-400/40 flex items-center justify-center text-indigo-200 text-xs font-mono font-bold shrink-0">
-                    05
-                  </div>
-                  <div>
-                    <div className="text-xs font-semibold text-white">Multi-Peptide Night Repair</div>
-                    <div className="text-[10px] text-indigo-200/80 font-mono">Collagen Renewal · PM Routine</div>
-                  </div>
-                </div>
-                <span className="px-2 py-0.5 rounded-full bg-indigo-400/20 text-indigo-200 text-[10px] font-mono border border-indigo-400/40 flex items-center gap-1 font-semibold">
-                  <Moon className="w-3 h-3" /> Tonight
+                <span className="px-3.5 py-1.5 rounded-full bg-white/10 border border-white/20 text-xs font-mono font-bold text-white shadow-sm flex items-center gap-1.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-pink-400" />
+                  ACNE
                 </span>
               </div>
             </div>
 
-            {/* Bottom Progress Summary */}
-            <div className="pt-2 border-t border-white/10 flex items-center justify-between text-[11px] font-mono text-purple-200">
-              <div className="flex items-center gap-1.5">
-                <span className="w-2 h-2 rounded-full bg-emerald-400" />
-                <span>88% Consistency</span>
+            {/* Middle: Morning & Evening Visual Routines */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
+              {/* MORNING ROUTINE */}
+              <div className="p-3.5 rounded-2xl bg-white/5 border border-white/10 space-y-2.5 hover:bg-white/10 transition-colors">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-1.5 text-xs font-mono font-bold text-amber-300 uppercase tracking-wide">
+                    <Sun className="w-3.5 h-3.5 text-amber-300 fill-amber-300/40" />
+                    <span>MORNING</span>
+                  </div>
+                  <span className="text-[10px] font-mono font-bold text-emerald-400 bg-emerald-500/15 px-2 py-0.5 rounded-full border border-emerald-500/30">
+                    4 / 4 COMPLETE
+                  </span>
+                </div>
+
+                {/* Visual Silhouettes with checkmarks */}
+                <div className="grid grid-cols-4 gap-1.5">
+                  {/* Step 1: Cleanser Bottle */}
+                  <div className="relative aspect-square rounded-xl bg-purple-900/60 border border-purple-400/30 flex items-center justify-center text-purple-200 group/step">
+                    <svg className="w-4 h-4 text-purple-200" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <rect x="7" y="9" width="10" height="13" rx="2" />
+                      <path d="M10 9V5a2 2 0 0 1 4 0v4" />
+                      <line x1="8" y1="5" x2="16" y2="5" />
+                    </svg>
+                    <span className="absolute -top-1 -right-1 w-3.5 h-3.5 rounded-full bg-emerald-500 text-stone-950 flex items-center justify-center text-[8px] font-extrabold shadow">
+                      ✓
+                    </span>
+                  </div>
+
+                  {/* Step 2: Serum Dropper */}
+                  <div className="relative aspect-square rounded-xl bg-amber-500/20 border border-amber-400/40 flex items-center justify-center text-amber-200 group/step">
+                    <svg className="w-4 h-4 text-amber-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="m14 4 6 6-9 9H5v-6l9-9Z" />
+                      <path d="m18 8 2-2" />
+                      <circle cx="5" cy="19" r="1.5" />
+                    </svg>
+                    <span className="absolute -top-1 -right-1 w-3.5 h-3.5 rounded-full bg-emerald-500 text-stone-950 flex items-center justify-center text-[8px] font-extrabold shadow">
+                      ✓
+                    </span>
+                  </div>
+
+                  {/* Step 3: Moisture Jar */}
+                  <div className="relative aspect-square rounded-xl bg-purple-900/60 border border-purple-400/30 flex items-center justify-center text-purple-200 group/step">
+                    <svg className="w-4 h-4 text-purple-200" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <rect x="4" y="10" width="16" height="11" rx="3" />
+                      <path d="M6 10V7a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v3" />
+                    </svg>
+                    <span className="absolute -top-1 -right-1 w-3.5 h-3.5 rounded-full bg-emerald-500 text-stone-950 flex items-center justify-center text-[8px] font-extrabold shadow">
+                      ✓
+                    </span>
+                  </div>
+
+                  {/* Step 4: SPF Fluid */}
+                  <div className="relative aspect-square rounded-xl bg-purple-900/60 border border-purple-400/30 flex items-center justify-center text-purple-200 group/step">
+                    <svg className="w-4 h-4 text-purple-200" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                      <circle cx="12" cy="11" r="2.5" />
+                    </svg>
+                    <span className="absolute -top-1 -right-1 w-3.5 h-3.5 rounded-full bg-emerald-500 text-stone-950 flex items-center justify-center text-[8px] font-extrabold shadow">
+                      ✓
+                    </span>
+                  </div>
+                </div>
               </div>
-              <span className="font-semibold text-yellow-300">Next Check-In: 2 days</span>
+
+              {/* EVENING ROUTINE */}
+              <div className="p-3.5 rounded-2xl bg-white/5 border border-white/10 space-y-2.5 hover:bg-white/10 transition-colors">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-1.5 text-xs font-mono font-bold text-indigo-300 uppercase tracking-wide">
+                    <Moon className="w-3.5 h-3.5 text-indigo-300 fill-indigo-300/40" />
+                    <span>EVENING</span>
+                  </div>
+                  <span className="text-[10px] font-mono font-bold text-indigo-300 bg-indigo-500/20 px-2 py-0.5 rounded-full border border-indigo-400/30">
+                    2 / 3 COMPLETE
+                  </span>
+                </div>
+
+                {/* Visual Silhouettes: 2 Done, 1 Upcoming */}
+                <div className="grid grid-cols-3 gap-2">
+                  {/* Step 1: Cleanser */}
+                  <div className="relative aspect-square rounded-xl bg-purple-900/60 border border-purple-400/30 flex items-center justify-center text-purple-200">
+                    <svg className="w-4 h-4 text-purple-200" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <rect x="7" y="9" width="10" height="13" rx="2" />
+                      <path d="M10 9V5a2 2 0 0 1 4 0v4" />
+                      <line x1="8" y1="5" x2="16" y2="5" />
+                    </svg>
+                    <span className="absolute -top-1 -right-1 w-3.5 h-3.5 rounded-full bg-emerald-500 text-stone-950 flex items-center justify-center text-[8px] font-extrabold shadow">
+                      ✓
+                    </span>
+                  </div>
+
+                  {/* Step 2: Night Active Serum */}
+                  <div className="relative aspect-square rounded-xl bg-indigo-900/60 border border-indigo-400/40 flex items-center justify-center text-indigo-200">
+                    <svg className="w-4 h-4 text-indigo-200" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="m14 4 6 6-9 9H5v-6l9-9Z" />
+                      <path d="m18 8 2-2" />
+                      <circle cx="5" cy="19" r="1.5" />
+                    </svg>
+                    <span className="absolute -top-1 -right-1 w-3.5 h-3.5 rounded-full bg-emerald-500 text-stone-950 flex items-center justify-center text-[8px] font-extrabold shadow">
+                      ✓
+                    </span>
+                  </div>
+
+                  {/* Step 3: Night Barrier Cream (Upcoming Tonight) */}
+                  <div className="relative aspect-square rounded-xl bg-white/5 border border-dashed border-white/30 flex items-center justify-center text-purple-300/80">
+                    <svg className="w-4 h-4 text-purple-300/80" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <rect x="4" y="10" width="16" height="11" rx="3" />
+                      <path d="M6 10V7a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v3" />
+                    </svg>
+                    <span className="absolute -top-1 -right-1 w-3.5 h-3.5 rounded-full border border-purple-300/50 bg-[#2A184D] text-purple-300 flex items-center justify-center text-[9px] font-extrabold">
+                      ○
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Center / Lower Middle: Personal Beauty Calendar */}
+            <div className="p-3.5 rounded-2xl bg-black/25 border border-white/10 space-y-2.5">
+              <div className="flex items-center justify-between text-[10px] font-mono uppercase tracking-widest text-purple-300/80 font-bold">
+                <span>PERSONAL CALENDAR</span>
+                <span className="text-yellow-300">WEEK 02</span>
+              </div>
+
+              {/* 7 Days Row: M T W T F S S */}
+              <div className="grid grid-cols-7 gap-1.5 text-center">
+                {/* Mon */}
+                <div className="flex flex-col items-center gap-1.5 py-1">
+                  <span className="text-[10px] font-mono font-bold text-purple-200">M</span>
+                  <span className="w-3 h-3 rounded-full bg-purple-400 shadow-[0_0_8px_rgba(192,132,252,0.8)]" title="Completed" />
+                </div>
+
+                {/* Tue */}
+                <div className="flex flex-col items-center gap-1.5 py-1">
+                  <span className="text-[10px] font-mono font-bold text-purple-200">T</span>
+                  <span className="w-3 h-3 rounded-full bg-amber-400 shadow-[0_0_8px_rgba(251,191,36,0.8)]" title="Completed" />
+                </div>
+
+                {/* Wed */}
+                <div className="flex flex-col items-center gap-1.5 py-1">
+                  <span className="text-[10px] font-mono font-bold text-purple-200">W</span>
+                  <span className="w-3 h-3 rounded-full bg-sky-400 shadow-[0_0_8px_rgba(56,189,248,0.8)]" title="Completed" />
+                </div>
+
+                {/* Thu (Rest) */}
+                <div className="flex flex-col items-center gap-1.5 py-1">
+                  <span className="text-[10px] font-mono font-bold text-purple-200">T</span>
+                  <span className="w-3 h-3 rounded-full border border-white/80 bg-white/20" title="Recovery" />
+                </div>
+
+                {/* Fri (Today!) */}
+                <div className="flex flex-col items-center gap-1.5 py-1 rounded-xl bg-yellow-400/20 border border-yellow-300/50">
+                  <span className="text-[10px] font-mono font-extrabold text-yellow-300">F</span>
+                  <span className="w-3 h-3 rounded-full bg-yellow-300 ring-2 ring-white shadow-[0_0_10px_#FDE047]" title="Today" />
+                </div>
+
+                {/* Sat (Upcoming) */}
+                <div className="flex flex-col items-center gap-1.5 py-1">
+                  <span className="text-[10px] font-mono font-bold text-purple-300/60">S</span>
+                  <span className="w-1.5 h-1.5 my-0.5 rounded-full bg-white/30" title="Upcoming" />
+                </div>
+
+                {/* Sun (Upcoming) */}
+                <div className="flex flex-col items-center gap-1.5 py-1">
+                  <span className="text-[10px] font-mono font-bold text-purple-300/60">S</span>
+                  <span className="w-1.5 h-1.5 my-0.5 rounded-full bg-white/30" title="Upcoming" />
+                </div>
+              </div>
+            </div>
+
+            {/* Bottom Row: Streak & Points */}
+            <div className="grid grid-cols-2 gap-3 pt-1">
+              {/* STREAK */}
+              <div className="p-3.5 rounded-2xl bg-amber-400/15 border border-amber-400/35 flex items-center gap-3">
+                <div className="w-10 h-10 rounded-2xl bg-amber-400/25 border border-amber-400/40 flex items-center justify-center text-amber-300 shrink-0">
+                  <Flame className="w-6 h-6 text-amber-400 fill-amber-400" />
+                </div>
+                <div>
+                  <div className="text-3xl sm:text-4xl font-extrabold text-white leading-none font-mono">
+                    8
+                  </div>
+                  <div className="text-[10px] font-mono uppercase tracking-widest text-amber-200/90 font-bold mt-1">
+                    DAY STREAK
+                  </div>
+                </div>
+              </div>
+
+              {/* POINTS */}
+              <div className="p-3.5 rounded-2xl bg-purple-500/20 border border-purple-400/35 flex items-center gap-3">
+                <div className="w-10 h-10 rounded-2xl bg-purple-500/30 border border-purple-400/40 flex items-center justify-center text-yellow-300 shrink-0">
+                  <svg className="w-6 h-6 text-yellow-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                    <circle cx="12" cy="12" r="9" />
+                    <circle cx="12" cy="12" r="4" fill="currentColor" />
+                  </svg>
+                </div>
+                <div>
+                  <div className="text-2xl sm:text-3xl font-extrabold text-white leading-none font-mono tracking-tight">
+                    1,240
+                  </div>
+                  <div className="text-[10px] font-mono uppercase tracking-widest text-purple-200/90 font-bold mt-1">
+                    POINTS
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
 

@@ -41,24 +41,35 @@ export const Chapter2StartWithYou: React.FC<Chapter2StartWithYouProps> = ({
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 sm:gap-10 pt-4">
           {/* COLUMN 1: LET'S FIND OUT YOUR SKIN NEEDS */}
           <div className="relative rounded-3xl p-7 bg-[#FF477E]/80 border border-white/25 shadow-xl flex flex-col justify-between space-y-6 hover:shadow-2xl transition-all group">
-            {/* Visual: Uploaded 3D Character with floating skin profile elements */}
-            <div className="relative w-full aspect-[4/3] rounded-2xl bg-white/10 border border-white/15 flex items-center justify-center overflow-visible">
-              {/* Character Image */}
-              <div className="relative w-36 sm:w-40 h-52 -mt-10 group-hover:scale-105 transition-transform duration-500 drop-shadow-xl">
+            {/* Visual: Uploaded Blonde 3D Character Pointing to Skin Observations */}
+            <div className="relative w-full aspect-[4/3] flex items-end justify-between overflow-visible">
+              {/* Soft background aura */}
+              <div className="absolute inset-0 bg-white/5 rounded-2xl pointer-events-none" />
+
+              {/* Uploaded Blonde Character (pointing upward) */}
+              <div className="relative w-40 sm:w-44 h-64 -mt-10 -ml-2 group-hover:scale-105 transition-transform duration-500 drop-shadow-2xl shrink-0 z-10">
                 <Image
-                  src="/characters/character-horn-announcement.png"
-                  alt="BioPass exploring your skin needs"
+                  src="/characters/character-pointing-blonde.png"
+                  alt="BioPass user discovering skin needs"
                   fill
-                  className="object-contain"
+                  className="object-contain object-bottom"
                 />
               </div>
 
-              {/* Floating beauty elements around character */}
-              <div className="absolute top-2 left-2 px-2.5 py-1 rounded-full bg-white/90 text-stone-900 text-[10px] font-mono font-bold shadow-md">
-                💧 Hydration: Needs Boost
-              </div>
-              <div className="absolute bottom-2 right-2 px-2.5 py-1 rounded-full bg-yellow-300 text-stone-950 text-[10px] font-mono font-bold shadow-md">
-                🛡️ Barrier: Stabilizing
+              {/* Pointing Target: Cluster of Visual Skin Observations */}
+              <div className="flex flex-col items-end gap-2 pb-6 pr-1 z-20">
+                <div className="px-3 py-1.5 rounded-full bg-white/25 border border-white/40 backdrop-blur-md text-white font-mono text-[11px] font-bold shadow-lg flex items-center gap-1.5 hover:bg-white/30 transition-all">
+                  <span>💧</span>
+                  <span>HYDRATION</span>
+                </div>
+                <div className="px-3 py-1.5 rounded-full bg-yellow-300 text-stone-950 font-mono text-[11px] font-extrabold shadow-lg flex items-center gap-1.5 mr-2 hover:scale-105 transition-all">
+                  <span className="w-2 h-2 rounded-full border-2 border-stone-950" />
+                  <span>PORES</span>
+                </div>
+                <div className="px-3 py-1.5 rounded-full bg-white/25 border border-white/40 backdrop-blur-md text-white font-mono text-[11px] font-bold shadow-lg flex items-center gap-1.5 hover:bg-white/30 transition-all">
+                  <span className="w-2 h-2 rounded-full bg-pink-300" />
+                  <span>BREAKOUTS</span>
+                </div>
               </div>
             </div>
 
