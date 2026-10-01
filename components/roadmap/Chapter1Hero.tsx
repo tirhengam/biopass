@@ -58,8 +58,6 @@ export const Chapter1Hero: React.FC<Chapter1HeroProps> = ({
           <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
             <a
               href={BIOPASS_APP_URL}
-              target="_blank"
-              rel="noopener noreferrer"
               className="px-8 py-4 rounded-full bg-yellow-400 text-stone-950 font-mono text-xs uppercase tracking-wider font-bold hover:bg-yellow-300 transition-all shadow-[0_0_30px_rgba(250,204,21,0.4)] flex items-center justify-center gap-3 group"
             >
               <span>TRY THE DEMO</span>

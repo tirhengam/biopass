@@ -56,8 +56,6 @@ export const Chapter6Final: React.FC<Chapter6FinalProps> = ({
         <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
           <a
             href={BIOPASS_APP_URL}
-            target="_blank"
-            rel="noopener noreferrer"
             className="px-9 py-4 rounded-full bg-yellow-400 text-stone-950 font-mono text-xs uppercase tracking-wider font-extrabold hover:bg-yellow-300 transition-all shadow-[0_0_35px_rgba(250,204,21,0.4)] flex items-center gap-3 group"
           >
             <span>TRY THE DEMO</span>

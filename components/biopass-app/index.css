@@ -1,0 +1,237 @@
+:root {
+  --bg-main: #080D10;
+  --card-bg: rgba(14, 22, 28, 0.88);
+  --card-border: rgba(255, 255, 255, 0.09);
+  --text-primary: #FFFFFF;
+  --text-secondary: #94A3B8;
+  --text-muted: #64748B;
+  --accent-magenta: #F94CAF;
+  --surface-alt: #0E171D;
+  --surface-inner: #080D10;
+}
+
+html.light {
+  --bg-main: #FAF7F2;
+  --card-bg: rgba(255, 255, 255, 0.95);
+  --card-border: #E8DED3;
+  --text-primary: #2C221E;
+  --text-secondary: #63554D;
+  --text-muted: #8A7B72;
+  --accent-magenta: #F94CAF;
+  --surface-alt: #F4ECE3;
+  --surface-inner: #EFE6DC;
+}
+
+body {
+  background-color: var(--bg-main);
+  color: var(--text-primary);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-main);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(249, 76, 175, 0.35);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #F94CAF;
+}
+
+/* Glass Card & Surfaces */
+.glass-card {
+  background: var(--card-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--card-border);
+  box-shadow: 0 12px 35px -10px rgba(0, 0, 0, 0.5);
+}
+
+html.light .glass-card {
+  box-shadow: 0 10px 30px -10px rgba(44, 34, 30, 0.07);
+}
+
+.glass-card-hover {
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.glass-card-hover:hover {
+  border-color: rgba(249, 76, 175, 0.5);
+  transform: translateY(-2px);
+  box-shadow: 0 16px 40px -10px rgba(249, 76, 175, 0.25);
+}
+
+.glass-input {
+  background: var(--surface-alt);
+  border: 1px solid var(--card-border);
+  color: var(--text-primary);
+  backdrop-filter: blur(10px);
+}
+.glass-input:focus {
+  border-color: #F94CAF;
+  box-shadow: 0 0 0 3px rgba(249, 76, 175, 0.25);
+  outline: none;
+}
+
+.bg-obsidian-grid {
+  background-color: var(--bg-main);
+  background-image: 
+    radial-gradient(circle at 50% 0%, rgba(249, 76, 175, 0.12) 0%, rgba(8, 13, 16, 0) 60%),
+    radial-gradient(circle at 100% 100%, rgba(249, 76, 175, 0.06) 0%, rgba(8, 13, 16, 0) 45%),
+    linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 100% 100%, 100% 100%, 32px 32px, 32px 32px;
+}
+
+html.light .bg-obsidian-grid {
+  background-image: 
+    radial-gradient(circle at 50% 0%, rgba(249, 76, 175, 0.09) 0%, rgba(250, 247, 242, 0) 55%),
+    radial-gradient(circle at 100% 100%, rgba(249, 76, 175, 0.05) 0%, rgba(250, 247, 242, 0) 40%),
+    linear-gradient(to right, rgba(44, 34, 30, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(44, 34, 30, 0.03) 1px, transparent 1px);
+}
+
+.text-gradient-magenta {
+  background: linear-gradient(135deg, #FF7BD2 0%, #F94CAF 50%, #D81B60 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.shadow-magenta {
+  box-shadow: 0 0 25px -4px rgba(249, 76, 175, 0.45);
+}
+.shadow-magenta-sm {
+  box-shadow: 0 0 15px -3px rgba(249, 76, 175, 0.3);
+}
+
+/* =========================================================================
+   LIGHT MODE COMPATIBILITY MAPPINGS
+   Ensures ALL text and surfaces switch gracefully between dark and bright modes!
+========================================================================= */
+html.light .text-white {
+  color: #2C221E !important;
+}
+html.light .text-slate-100 {
+  color: #2C221E !important;
+}
+html.light .text-slate-200 {
+  color: #3D312A !important;
+}
+html.light .text-slate-300 {
+  color: #55473F !important;
+}
+html.light .text-slate-400 {
+  color: #726257 !important;
+}
+html.light .text-slate-500 {
+  color: #8C7B70 !important;
+}
+html.light .text-slate-600 {
+  color: #9C8C82 !important;
+}
+
+html.light .bg-\[\#080D10\] {
+  background-color: #F4EBE2 !important;
+}
+html.light .bg-\[\#080D10\]\/80 {
+  background-color: rgba(244, 235, 226, 0.85) !important;
+}
+html.light .bg-\[\#080D10\]\/95 {
+  background-color: rgba(244, 235, 226, 0.95) !important;
+}
+html.light .bg-\[\#080D10\]\/50 {
+  background-color: rgba(244, 235, 226, 0.5) !important;
+}
+html.light .bg-\[\#0E161C\] {
+  background-color: #FFFFFF !important;
+}
+html.light .bg-\[\#0E161C\]\/90 {
+  background-color: rgba(255, 255, 255, 0.92) !important;
+}
+html.light .bg-\[\#111A20\] {
+  background-color: #F8F1E9 !important;
+}
+html.light .bg-\[\#121B22\] {
+  background-color: #EFE6DC !important;
+}
+html.light .bg-\[\#121E26\] {
+  background-color: #FDF2F8 !important;
+}
+html.light .bg-\[\#131E26\] {
+  background-color: #FFFFFF !important;
+}
+html.light .bg-\[\#0A1216\] {
+  background-color: #F4ECE3 !important;
+}
+
+html.light .border-white\/10 {
+  border-color: #E8DED3 !important;
+}
+html.light .border-white\/15 {
+  border-color: #DFD3C6 !important;
+}
+html.light .border-white\/20 {
+  border-color: #D6C8B9 !important;
+}
+html.light .border-white\/5 {
+  border-color: #EFE6DC !important;
+}
+html.light .bg-white\/10 {
+  background-color: rgba(44, 34, 30, 0.06) !important;
+}
+html.light .bg-white\/5 {
+  background-color: rgba(44, 34, 30, 0.04) !important;
+}
+html.light .bg-white\/15 {
+  background-color: rgba(44, 34, 30, 0.1) !important;
+}
+html.light .bg-white\/20 {
+  background-color: rgba(44, 34, 30, 0.12) !important;
+}
+
+html.light .fill-slate-300 {
+  fill: #2C221E !important;
+}
+html.light text.fill-slate-300 {
+  fill: #2C221E !important;
+}
+
+/* Exception for vibrant magenta gradient text / buttons */
+.text-gradient-magenta, .text-gradient-magenta * {
+  -webkit-text-fill-color: transparent !important;
+}
+button[class*="bg-gradient-to-r from-\[\#F94CAF\]"] {
+  color: #FFFFFF !important;
+}
+button[class*="bg-\[\#F94CAF\]"] {
+  color: #FFFFFF !important;
+}
+span[class*="bg-\[\#F94CAF\]"] {
+  color: #FFFFFF !important;
+}
+div[class*="bg-\[\#F94CAF\]"] {
+  color: #FFFFFF !important;
+}
+
+@keyframes pulse-subtle {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.85; }
+}
+.animate-pulse-subtle {
+  animation: pulse-subtle 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-out forwards;
+}

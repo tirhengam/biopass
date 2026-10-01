@@ -94,8 +94,6 @@ export const Navbar: React.FC<NavbarProps> = ({
         <div className="hidden sm:flex items-center gap-3">
           <a
             href={BIOPASS_APP_URL}
-            target="_blank"
-            rel="noopener noreferrer"
             className={`px-5 py-2.5 rounded-full text-xs font-mono uppercase tracking-wider font-bold transition-all duration-300 shadow-md flex items-center gap-2 group ${
               isLightSection
                 ? "bg-[#1B0E33] text-white hover:bg-black hover:shadow-lg"
@@ -111,8 +109,6 @@ export const Navbar: React.FC<NavbarProps> = ({
         <div className="flex sm:hidden items-center gap-2">
           <a
             href={BIOPASS_APP_URL}
-            target="_blank"
-            rel="noopener noreferrer"
             className={`px-3 py-1.5 rounded-full text-[11px] font-mono uppercase tracking-wider font-bold ${
               isLightSection ? "bg-[#1B0E33] text-white" : "bg-yellow-400 text-stone-950"
             }`}
@@ -175,8 +171,6 @@ export const Navbar: React.FC<NavbarProps> = ({
 
             <a
               href={BIOPASS_APP_URL}
-              target="_blank"
-              rel="noopener noreferrer"
               onClick={() => setMobileMenuOpen(false)}
               className={`w-full py-3 rounded-full text-center text-xs font-mono uppercase tracking-wider font-bold mt-2 block shadow-lg ${
                 isLightSection ? "bg-[#1B0E33] text-white" : "bg-yellow-400 text-stone-950"
