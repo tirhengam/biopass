@@ -4,12 +4,10 @@ import React, { useState } from "react";
 import { Check, Flame, Calendar, Clock, Sparkles, Sun, Moon, ArrowRight, ShieldCheck } from "lucide-react";
 
 interface Chapter4TodayRoutineProps {
-  onOpenBuilder: () => void;
+  onOpenBuilder?: () => void;
 }
 
-export const Chapter4TodayRoutine: React.FC<Chapter4TodayRoutineProps> = ({
-  onOpenBuilder,
-}) => {
+export const Chapter4TodayRoutine: React.FC<Chapter4TodayRoutineProps> = () => {
   // Interactive checklist state for demonstration
   const [amRoutine, setAmRoutine] = useState([
     { name: "Cleanser", detail: "Gentle Hydrating Milk", checked: true },

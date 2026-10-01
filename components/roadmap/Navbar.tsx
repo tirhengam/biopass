@@ -1,23 +1,22 @@
 "use client";
 
 import React, { useState } from "react";
-import { Sparkles, Menu, X, ArrowUpRight } from "lucide-react";
+import { BIOPASS_APP_URL } from "@/config/appConfig";
+import { ArrowUpRight, Menu, X } from "lucide-react";
 
 interface NavbarProps {
   activeSection: number;
-  onOpenBuilder: () => void;
   onOpenContact: () => void;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({
   activeSection,
-  onOpenBuilder,
   onOpenContact,
 }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  // Sections 1 and 6 are dark backgrounds; Sections 2, 3, 4, 5 are light backgrounds
-  const isDarkSection = activeSection === 1 || activeSection === 6;
+  // Sections 1 and 5 (final) are dark backgrounds; Sections 2, 3, 4 are light backgrounds
+  const isDarkSection = activeSection === 1 || activeSection === 5;
 
   const scrollTo = (id: string) => {
     setMobileMenuOpen(false);
@@ -32,8 +31,8 @@ export const Navbar: React.FC<NavbarProps> = ({
       <div
         className={`max-w-6xl mx-auto rounded-full px-5 sm:px-7 py-3 transition-all duration-500 flex items-center justify-between border ${
           isDarkSection
-            ? "bg-[#0B0B0E]/60 border-white/10 text-white shadow-[0_8px_30px_rgba(0,0,0,0.5)] backdrop-blur-xl"
-            : "bg-white/70 border-stone-900/10 text-stone-900 shadow-[0_8px_30px_rgba(0,0,0,0.06)] backdrop-blur-xl"
+            ? "bg-[#0B0B0E]/70 border-white/10 text-white shadow-[0_8px_30px_rgba(0,0,0,0.5)] backdrop-blur-xl"
+            : "bg-white/75 border-stone-900/10 text-stone-900 shadow-[0_8px_30px_rgba(0,0,0,0.06)] backdrop-blur-xl"
         }`}
       >
         {/* Left: Brand */}
@@ -60,7 +59,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             How It Works
           </button>
           <button
-            onClick={() => scrollTo("section-roadmap")}
+            onClick={() => scrollTo("section-calendar")}
             className={`transition-colors duration-300 ${
               isDarkSection
                 ? "text-stone-300 hover:text-white"
@@ -70,7 +69,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             Your Journey
           </button>
           <button
-            onClick={() => scrollTo("section-adapt")}
+            onClick={() => scrollTo("section-routine")}
             className={`transition-colors duration-300 ${
               isDarkSection
                 ? "text-stone-300 hover:text-white"
@@ -81,31 +80,35 @@ export const Navbar: React.FC<NavbarProps> = ({
           </button>
         </nav>
 
-        {/* Right: Primary Action Button */}
+        {/* Right: Primary Action Button — ALWAYS "TRY THE DEMO" */}
         <div className="hidden sm:flex items-center gap-3">
-          <button
-            onClick={onOpenBuilder}
+          <a
+            href={BIOPASS_APP_URL}
+            target="_blank"
+            rel="noopener noreferrer"
             className={`px-5 py-2.5 rounded-full text-xs font-mono uppercase tracking-wider font-semibold transition-all duration-300 shadow-sm flex items-center gap-2 group ${
               isDarkSection
                 ? "bg-white text-stone-950 hover:bg-stone-200 hover:shadow-white/20"
                 : "bg-stone-950 text-white hover:bg-stone-800 hover:shadow-stone-950/20"
             }`}
           >
-            <span>Start Your Journey</span>
+            <span>TRY THE DEMO</span>
             <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-          </button>
+          </a>
         </div>
 
         {/* Mobile Hamburger */}
         <div className="flex sm:hidden items-center gap-2">
-          <button
-            onClick={onOpenBuilder}
+          <a
+            href={BIOPASS_APP_URL}
+            target="_blank"
+            rel="noopener noreferrer"
             className={`px-3 py-1.5 rounded-full text-[11px] font-mono uppercase tracking-wider font-semibold ${
               isDarkSection ? "bg-white text-stone-950" : "bg-stone-950 text-white"
             }`}
           >
-            Start
-          </button>
+            TRY THE DEMO
+          </a>
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             className={`p-2 rounded-full ${isDarkSection ? "text-stone-300" : "text-stone-700"}`}
@@ -133,13 +136,13 @@ export const Navbar: React.FC<NavbarProps> = ({
               How It Works
             </button>
             <button
-              onClick={() => scrollTo("section-roadmap")}
+              onClick={() => scrollTo("section-calendar")}
               className="text-left py-2 border-b border-white/5"
             >
               Your Journey
             </button>
             <button
-              onClick={() => scrollTo("section-adapt")}
+              onClick={() => scrollTo("section-routine")}
               className="text-left py-2 border-b border-white/5"
             >
               Why BioPass
@@ -154,17 +157,17 @@ export const Navbar: React.FC<NavbarProps> = ({
               Contact Advisory
             </button>
 
-            <button
-              onClick={() => {
-                setMobileMenuOpen(false);
-                onOpenBuilder();
-              }}
-              className={`w-full py-3 rounded-full text-center text-xs font-mono uppercase tracking-wider font-semibold mt-2 ${
+            <a
+              href={BIOPASS_APP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setMobileMenuOpen(false)}
+              className={`w-full py-3 rounded-full text-center text-xs font-mono uppercase tracking-wider font-semibold mt-2 block ${
                 isDarkSection ? "bg-white text-stone-950" : "bg-stone-950 text-white"
               }`}
             >
-              Start Your Journey
-            </button>
+              TRY THE DEMO
+            </a>
           </div>
         </div>
       )}

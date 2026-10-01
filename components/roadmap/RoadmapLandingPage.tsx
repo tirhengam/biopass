@@ -6,25 +6,20 @@ import { Chapter1Promise } from "./Chapter1Promise";
 import { Chapter2StartWithYou } from "./Chapter2StartWithYou";
 import { Chapter3BeautyRoadmap } from "./Chapter3BeautyRoadmap";
 import { Chapter4TodayRoutine } from "./Chapter4TodayRoutine";
-import { Chapter5IngredientsToProducts } from "./Chapter5IngredientsToProducts";
-import { Chapter6TrackLearnAdapt } from "./Chapter6TrackLearnAdapt";
-import { JourneyBuilderModal } from "./JourneyBuilderModal";
+import { FinalSectionCTA } from "./FinalSectionCTA";
 import { ContactModal } from "./ContactModal";
 
 export const RoadmapLandingPage: React.FC = () => {
   const [activeSection, setActiveSection] = useState<number>(1);
-  const [isBuilderOpen, setIsBuilderOpen] = useState(false);
   const [isContactOpen, setIsContactOpen] = useState(false);
-  const [initialBuilderGoal, setInitialBuilderGoal] = useState<string | undefined>(undefined);
 
   useEffect(() => {
     const sectionIds = [
       "section-promise",
       "section-start-with-you",
-      "section-roadmap",
+      "section-calendar",
       "section-routine",
-      "section-products",
-      "section-adapt",
+      "section-final-cta",
     ];
 
     const handleScroll = () => {
@@ -48,11 +43,6 @@ export const RoadmapLandingPage: React.FC = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const openBuilderWithGoal = (goal?: string) => {
-    if (goal) setInitialBuilderGoal(goal);
-    setIsBuilderOpen(true);
-  };
-
   const scrollToSection = (id: string) => {
     const el = document.getElementById(id);
     if (el) {
@@ -62,57 +52,37 @@ export const RoadmapLandingPage: React.FC = () => {
 
   return (
     <div className="relative w-full min-h-screen font-sans selection:bg-violet-600 selection:text-white">
-      {/* Dynamic Theme Adaptive Navbar */}
+      {/* Dynamic Theme-Adaptive Navbar — Always featuring "TRY THE DEMO" */}
       <Navbar
         activeSection={activeSection}
-        onOpenBuilder={() => openBuilderWithGoal()}
         onOpenContact={() => setIsContactOpen(true)}
       />
 
-      {/* Main 6-Chapter Flow */}
+      {/* Main Streamlined Visual Story Flow */}
       <main className="w-full">
-        {/* Chapter 01 — THE PROMISE (Dark Near-Black) */}
+        {/* 1. Hero: BioPass + Conceptual Dashboard with 5 Products (Dark Background) */}
         <Chapter1Promise
-          onOpenBuilder={() => openBuilderWithGoal()}
           onExplore={() => scrollToSection("section-start-with-you")}
         />
 
-        {/* Chapter 02 — START WITH YOU (Warm Ivory / Cream) */}
+        {/* 2. Chapter 2: Don't start with another product. Start with you. (3 Visual Columns: Photo Woman, Timeline, Calendar Streaks) */}
         <Chapter2StartWithYou
-          onOpenBuilder={(g) => openBuilderWithGoal(g)}
-          onContinue={() => scrollToSection("section-roadmap")}
+          onContinue={() => scrollToSection("section-calendar")}
         />
 
-        {/* Chapter 03 — YOUR BEAUTY ROADMAP (Soft Lavender - Signature Section) */}
-        <Chapter3BeautyRoadmap
-          onOpenBuilder={() => openBuilderWithGoal()}
-        />
+        {/* 3. Chapter 3: Prominent Daily Beauty Calendar ("Your roadmap connects directly to what you do each day.") */}
+        <Chapter3BeautyRoadmap />
 
-        {/* Chapter 04 — TODAY'S ROUTINE (Very Pale Cool Blue / Slate) */}
-        <Chapter4TodayRoutine
-          onOpenBuilder={() => openBuilderWithGoal()}
-        />
+        {/* 4. Chapter 4: Today's Routine & Everyday Consistency */}
+        <Chapter4TodayRoutine />
 
-        {/* Chapter 05 — FROM INGREDIENTS TO PRODUCTS (Clean Warm White) */}
-        <Chapter5IngredientsToProducts
-          onOpenBuilder={() => openBuilderWithGoal()}
-        />
-
-        {/* Chapter 06 — TRACK, LEARN & ADAPT (Deep Charcoal / Black) */}
-        <Chapter6TrackLearnAdapt
-          onOpenBuilder={() => openBuilderWithGoal()}
+        {/* 5. Final Section: "Your beauty goal is a journey. Give it a roadmap." + TRY THE DEMO */}
+        <FinalSectionCTA
           onOpenContact={() => setIsContactOpen(true)}
-          onScrollToTop={() => window.scrollTo({ top: 0, behavior: "smooth" })}
         />
       </main>
 
-      {/* Modals */}
-      <JourneyBuilderModal
-        isOpen={isBuilderOpen}
-        onClose={() => setIsBuilderOpen(false)}
-        initialGoal={initialBuilderGoal}
-      />
-
+      {/* Advisory / Inquiries Modal */}
       <ContactModal
         isOpen={isContactOpen}
         onClose={() => setIsContactOpen(false)}
