@@ -2,7 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
-import { Compass, Flame, ArrowRight, CheckCircle2, Calendar as CalendarIcon, Sparkles } from "lucide-react";
+import { Compass, Flame, ArrowRight, Sparkles, Heart, Droplets, Shield } from "lucide-react";
 
 interface Chapter2StartWithYouProps {
   onContinue: () => void;
@@ -14,199 +14,202 @@ export const Chapter2StartWithYou: React.FC<Chapter2StartWithYouProps> = ({
   return (
     <section
       id="section-start-with-you"
-      className="relative min-h-screen flex flex-col justify-between py-24 sm:py-32 px-6 sm:px-12 bg-[#FAF6F0] text-stone-900 transition-colors duration-700"
+      className="relative min-h-screen flex flex-col justify-between py-24 sm:py-32 px-6 sm:px-12 bg-[#FF5C8A] text-white transition-colors duration-700 overflow-hidden"
     >
-      {/* Top Gradient Transition from Section 1 */}
-      <div className="absolute top-0 left-0 right-0 h-28 bg-gradient-to-b from-[#0B0B0E] via-[#0B0B0E]/40 to-transparent pointer-events-none" />
+      {/* Background Soft Lighting */}
+      <div className="absolute top-1/4 left-1/3 w-[500px] h-[500px] bg-white/10 rounded-full blur-[140px] pointer-events-none" />
 
-      <div className="max-w-6xl mx-auto w-full space-y-14 my-auto z-10">
+      <div className="max-w-6xl mx-auto w-full space-y-16 my-auto z-10">
         {/* Section Header */}
         <div className="max-w-3xl mx-auto text-center space-y-4">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-stone-900/5 border border-stone-900/10 text-stone-700 text-xs font-mono uppercase tracking-[0.16em]">
-            <Compass className="w-3.5 h-3.5 text-stone-600" />
-            <span>How It Works</span>
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/15 border border-white/25 text-white text-xs font-mono uppercase tracking-[0.16em]">
+            <Compass className="w-3.5 h-3.5 text-yellow-300" />
+            <span>Chapter 02 · Start With You</span>
           </div>
 
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-light tracking-tight text-stone-950 leading-[1.12]">
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-light tracking-tight text-white leading-[1.1]">
             Don&apos;t start with another product. <br />
-            <span className="font-normal italic text-stone-800">Start with you.</span>
+            <span className="font-normal italic text-yellow-200">Start with you.</span>
           </h2>
 
-          <p className="text-lg sm:text-xl text-stone-600 font-light italic">
+          <p className="text-lg sm:text-2xl text-white/95 font-medium italic">
             Want a routine but don&apos;t know where to start?
           </p>
         </div>
 
-        {/* THREE HIGHLY VISUAL COLUMNS */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        {/* THREE LARGE VISUAL COLUMNS WITH UPLOADED CHARACTERS */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 sm:gap-10 pt-4">
           {/* COLUMN 1: LET'S FIND OUT YOUR SKIN NEEDS */}
-          <div className="bg-white rounded-3xl p-6 sm:p-7 border border-stone-900/10 shadow-[0_10px_30px_rgba(0,0,0,0.03)] flex flex-col justify-between space-y-6 hover:shadow-xl transition-all duration-300">
-            {/* Visual: Relevant beauty/lifestyle photo of a woman */}
-            <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden border border-stone-900/5 bg-stone-100">
-              <Image
-                src="/images/woman-mindful-skincare.jpg"
-                alt="Mindful beauty and personal skin understanding"
-                fill
-                className="object-cover object-center hover:scale-105 transition-transform duration-700 ease-out"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-stone-950/40 via-transparent to-transparent" />
-              <div className="absolute bottom-3 left-3.5 right-3.5 flex items-center justify-between text-white text-[11px] font-mono">
-                <span className="bg-black/40 backdrop-blur-md px-2.5 py-0.5 rounded-full border border-white/20">
-                  Personal Skin Profile
-                </span>
-                <span className="text-stone-200">Starting Point</span>
+          <div className="relative rounded-3xl p-7 bg-[#FF477E]/80 border border-white/25 shadow-xl flex flex-col justify-between space-y-6 hover:shadow-2xl transition-all group">
+            {/* Visual: Uploaded 3D Character with floating skin profile elements */}
+            <div className="relative w-full aspect-[4/3] rounded-2xl bg-white/10 border border-white/15 flex items-center justify-center overflow-visible">
+              {/* Character Image */}
+              <div className="relative w-36 sm:w-40 h-52 -mt-10 group-hover:scale-105 transition-transform duration-500 drop-shadow-xl">
+                <Image
+                  src="/characters/character-horn-announcement.png"
+                  alt="BioPass exploring your skin needs"
+                  fill
+                  className="object-contain"
+                />
+              </div>
+
+              {/* Floating beauty elements around character */}
+              <div className="absolute top-2 left-2 px-2.5 py-1 rounded-full bg-white/90 text-stone-900 text-[10px] font-mono font-bold shadow-md">
+                💧 Hydration: Needs Boost
+              </div>
+              <div className="absolute bottom-2 right-2 px-2.5 py-1 rounded-full bg-yellow-300 text-stone-950 text-[10px] font-mono font-bold shadow-md">
+                🛡️ Barrier: Stabilizing
               </div>
             </div>
 
             {/* Content */}
-            <div className="space-y-2">
-              <span className="text-[10px] font-mono uppercase tracking-widest text-stone-500 font-semibold block">
-                Column 01
+            <div className="space-y-2 text-white">
+              <span className="text-[10px] font-mono uppercase tracking-widest text-yellow-200 font-bold block">
+                01 · Discovery
               </span>
-              <h3 className="text-xl sm:text-2xl font-light text-stone-950 tracking-tight">
+              <h3 className="text-2xl font-bold tracking-tight">
                 Let&apos;s find out your skin needs
               </h3>
-              <p className="text-xs sm:text-sm text-stone-600 leading-relaxed font-light">
-                BioPass first helps you better understand your skin, concerns, and needs before creating a routine.
+              <p className="text-sm text-white/90 leading-relaxed font-light">
+                Understand your skin, concerns and current routine before deciding what comes next.
               </p>
             </div>
           </div>
 
           {/* COLUMN 2: PHASES & PLANS */}
-          <div className="bg-white rounded-3xl p-6 sm:p-7 border border-stone-900/10 shadow-[0_10px_30px_rgba(0,0,0,0.03)] flex flex-col justify-between space-y-6 hover:shadow-xl transition-all duration-300">
-            {/* Visual: Simplified plan of dots connected by lines */}
-            <div className="w-full aspect-[4/3] rounded-2xl bg-[#F8F5F0] border border-stone-900/5 p-5 flex flex-col justify-center relative overflow-hidden">
-              <div className="text-[10px] font-mono uppercase tracking-widest text-stone-500 mb-6 text-center">
-                Visual Journey Path
+          <div className="relative rounded-3xl p-7 bg-[#FF477E]/80 border border-white/25 shadow-xl flex flex-col justify-between space-y-6 hover:shadow-2xl transition-all group">
+            {/* Visual: Organic Playful Journey Path */}
+            <div className="relative w-full aspect-[4/3] rounded-2xl bg-white/10 border border-white/15 p-4 flex flex-col justify-center">
+              <div className="text-[10px] font-mono uppercase tracking-widest text-yellow-200 mb-6 text-center font-bold">
+                Organic Beauty Path
               </div>
 
-              {/* Dots connected by lines: ●───────●───────●───────● */}
+              {/* ●━━━━━━●━━━━━━●━━━━━━● */}
               <div className="relative flex items-center justify-between px-2">
-                {/* Connecting Line */}
-                <div className="absolute left-6 right-6 top-3 h-[2px] bg-stone-300" />
-                <div className="absolute left-6 w-1/2 top-3 h-[2px] bg-violet-600" />
+                {/* Playful Organic Line */}
+                <div className="absolute left-6 right-6 top-3 h-1 bg-white/30 rounded-full" />
+                <div className="absolute left-6 w-3/5 top-3 h-1 bg-yellow-300 rounded-full shadow-[0_0_8px_rgba(250,204,21,0.8)]" />
 
-                {/* Node 1: Start */}
+                {/* Node 1: START */}
                 <div className="relative z-10 flex flex-col items-center">
-                  <div className="w-6 h-6 rounded-full bg-violet-600 text-white flex items-center justify-center text-[10px] font-bold shadow-md">
+                  <div className="w-7 h-7 rounded-full bg-yellow-300 text-stone-950 flex items-center justify-center text-[10px] font-extrabold shadow-md">
                     ✓
                   </div>
-                  <span className="text-[10px] font-mono font-bold text-stone-900 mt-2">START</span>
-                  <span className="text-[9px] text-stone-500 font-mono">Profile</span>
+                  <span className="text-[10px] font-mono font-bold text-white mt-2">START</span>
+                  <span className="text-[9px] text-white/70 font-mono">Needs</span>
                 </div>
 
-                {/* Node 2: Phase 1 */}
+                {/* Node 2: PHASE 1 */}
                 <div className="relative z-10 flex flex-col items-center">
-                  <div className="w-6 h-6 rounded-full bg-violet-600 text-white flex items-center justify-center text-[10px] font-bold shadow-md ring-4 ring-violet-200">
+                  <div className="w-7 h-7 rounded-full bg-yellow-300 text-stone-950 flex items-center justify-center text-[10px] font-extrabold shadow-md ring-4 ring-white/30">
                     01
                   </div>
-                  <span className="text-[10px] font-mono font-bold text-violet-900 mt-2">PHASE 1</span>
-                  <span className="text-[9px] text-stone-500 font-mono">Weeks 1-2</span>
+                  <span className="text-[10px] font-mono font-bold text-yellow-200 mt-2">PHASE 1</span>
+                  <span className="text-[9px] text-white/70 font-mono">Barrier</span>
                 </div>
 
-                {/* Node 3: Check-in */}
+                {/* Node 3: CHECK-IN */}
                 <div className="relative z-10 flex flex-col items-center">
-                  <div className="w-6 h-6 rounded-full bg-amber-500 text-white flex items-center justify-center text-[10px] font-bold shadow-sm">
+                  <div className="w-7 h-7 rounded-full bg-purple-600 text-white flex items-center justify-center text-[10px] font-extrabold shadow-md ring-2 ring-white">
                     ◆
                   </div>
-                  <span className="text-[10px] font-mono font-bold text-stone-900 mt-2">CHECK-IN</span>
-                  <span className="text-[9px] text-stone-500 font-mono">Day 14</span>
+                  <span className="text-[10px] font-mono font-bold text-white mt-2">CHECK-IN</span>
+                  <span className="text-[9px] text-white/70 font-mono">Day 14</span>
                 </div>
 
-                {/* Node 4: Phase 2 */}
+                {/* Node 4: NEXT */}
                 <div className="relative z-10 flex flex-col items-center">
-                  <div className="w-6 h-6 rounded-full bg-white border-2 border-stone-300 text-stone-400 flex items-center justify-center text-[10px]">
+                  <div className="w-7 h-7 rounded-full bg-white/20 border-2 border-white/60 text-white flex items-center justify-center text-[10px] font-bold">
                     02
                   </div>
-                  <span className="text-[10px] font-mono font-bold text-stone-500 mt-2">PHASE 2</span>
-                  <span className="text-[9px] text-stone-400 font-mono">Weeks 3-6</span>
+                  <span className="text-[10px] font-mono font-bold text-white/70 mt-2">NEXT</span>
+                  <span className="text-[9px] text-white/60 font-mono">Target</span>
                 </div>
               </div>
 
-              <div className="text-[10px] font-mono text-center text-stone-500 mt-6 pt-3 border-t border-stone-200">
+              <div className="text-[10px] font-mono text-center text-white/80 mt-6 pt-3 border-t border-white/10 italic">
                 &ldquo;I know where I am now and what comes next.&rdquo;
               </div>
             </div>
 
             {/* Content */}
-            <div className="space-y-2">
-              <span className="text-[10px] font-mono uppercase tracking-widest text-violet-700 font-semibold block">
-                Column 02
+            <div className="space-y-2 text-white">
+              <span className="text-[10px] font-mono uppercase tracking-widest text-yellow-200 font-bold block">
+                02 · Structure
               </span>
-              <h3 className="text-xl sm:text-2xl font-light text-stone-950 tracking-tight">
+              <h3 className="text-2xl font-bold tracking-tight">
                 Phases &amp; Plans
               </h3>
-              <p className="text-xs sm:text-sm text-stone-600 leading-relaxed font-light">
-                Turn your goals into a structured beauty journey with different phases, milestones and check-ins.
+              <p className="text-sm text-white/90 leading-relaxed font-light">
+                Turn your goals into a journey with clear phases, milestones and check-ins.
               </p>
             </div>
           </div>
 
           {/* COLUMN 3: STREAKS & OVERVIEW */}
-          <div className="bg-white rounded-3xl p-6 sm:p-7 border border-stone-900/10 shadow-[0_10px_30px_rgba(0,0,0,0.03)] flex flex-col justify-between space-y-6 hover:shadow-xl transition-all duration-300">
-            {/* Visual: Beautiful Conceptual Calendar with colored markers and streak */}
-            <div className="w-full aspect-[4/3] rounded-2xl bg-[#F8F5F0] border border-stone-900/5 p-4 flex flex-col justify-between">
-              {/* Header with Streak */}
-              <div className="flex items-center justify-between pb-2 border-b border-stone-200">
-                <span className="text-[10px] font-mono uppercase tracking-widest text-stone-500">
-                  Weekly Rhythm
+          <div className="relative rounded-3xl p-7 bg-[#FF477E]/80 border border-white/25 shadow-xl flex flex-col justify-between space-y-6 hover:shadow-2xl transition-all group">
+            {/* Visual: Conceptual Calendar with colored markers and streak */}
+            <div className="relative w-full aspect-[4/3] rounded-2xl bg-white/10 border border-white/15 p-4 flex flex-col justify-between">
+              <div className="flex items-center justify-between pb-2 border-b border-white/15">
+                <span className="text-[10px] font-mono uppercase tracking-widest text-white/80 font-bold">
+                  Daily Rhythm
                 </span>
-                <div className="flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-amber-100 text-amber-900 text-xs font-mono font-bold border border-amber-300/60">
-                  <Flame className="w-3.5 h-3.5 text-amber-600 fill-amber-500" />
-                  <span>9 Day Streak</span>
+                <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-yellow-300 text-stone-950 text-xs font-mono font-extrabold shadow-sm">
+                  <Flame className="w-3.5 h-3.5 text-orange-600 fill-orange-500" />
+                  <span>🔥 9 DAY STREAK</span>
                 </div>
               </div>
 
-              {/* 7-Day Mini Markers */}
+              {/* 7-day visual dots */}
               <div className="grid grid-cols-7 gap-1.5 text-center my-auto py-2">
                 {[
-                  { d: "M", dot: "bg-purple-600", act: "NIA" },
-                  { d: "T", dot: "bg-amber-500 ring-2 ring-stone-900/20", act: "VIT C" },
-                  { d: "W", dot: "bg-sky-500", act: "PEP" },
-                  { d: "T", dot: "border border-stone-400 bg-transparent", act: "REST" },
-                  { d: "F", dot: "bg-purple-600", act: "NIA" },
-                  { d: "S", dot: "bg-amber-500", act: "VIT C" },
-                  { d: "S", dot: "border border-stone-400 bg-transparent", act: "REST" },
+                  { d: "M", dot: "bg-purple-400", act: "NIA" },
+                  { d: "T", dot: "bg-amber-300 ring-2 ring-white", act: "VIT C" },
+                  { d: "W", dot: "bg-sky-300", act: "PEP" },
+                  { d: "T", dot: "border-2 border-white/80 bg-transparent", act: "REST" },
+                  { d: "F", dot: "bg-purple-400", act: "NIA" },
+                  { d: "S", dot: "bg-amber-300", act: "VIT C" },
+                  { d: "S", dot: "border-2 border-white/80 bg-transparent", act: "REST" },
                 ].map((item, idx) => (
-                  <div key={idx} className="p-1 rounded-lg bg-white border border-stone-200 flex flex-col items-center">
-                    <span className="text-[9px] font-mono text-stone-500">{item.d}</span>
-                    <div className={`w-2.5 h-2.5 rounded-full my-1 ${item.dot}`} />
-                    <span className="text-[8px] font-mono text-stone-800 font-bold">{item.act}</span>
+                  <div key={idx} className="p-1 rounded-xl bg-black/20 border border-white/10 flex flex-col items-center">
+                    <span className="text-[9px] font-mono text-white/70">{item.d}</span>
+                    <div className={`w-3 h-3 rounded-full my-1 ${item.dot}`} />
+                    <span className="text-[8px] font-mono text-white font-bold">{item.act}</span>
                   </div>
                 ))}
               </div>
 
-              {/* Legend line */}
-              <div className="flex items-center justify-between text-[9px] font-mono text-stone-500 pt-2 border-t border-stone-200">
-                <span className="flex items-center gap-1"><span className="w-1.5 h-1.5 rounded-full bg-purple-600" /> Nia</span>
-                <span className="flex items-center gap-1"><span className="w-1.5 h-1.5 rounded-full bg-amber-500" /> Vit C</span>
-                <span className="flex items-center gap-1"><span className="w-1.5 h-1.5 rounded-full bg-sky-500" /> Pep</span>
-                <span className="flex items-center gap-1"><span className="w-1.5 h-1.5 rounded-full border border-stone-400" /> Rest</span>
+              {/* Legend */}
+              <div className="flex items-center justify-between text-[9px] font-mono text-white/80 pt-2 border-t border-white/15">
+                <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-purple-400" /> Nia</span>
+                <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-amber-300" /> Vit C</span>
+                <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-sky-300" /> Pep</span>
+                <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full border border-white" /> Rest</span>
               </div>
             </div>
 
             {/* Content */}
-            <div className="space-y-2">
-              <span className="text-[10px] font-mono uppercase tracking-widest text-amber-800 font-semibold block">
-                Column 03
+            <div className="space-y-2 text-white">
+              <span className="text-[10px] font-mono uppercase tracking-widest text-yellow-200 font-bold block">
+                03 · Daily Action
               </span>
-              <h3 className="text-xl sm:text-2xl font-light text-stone-950 tracking-tight">
+              <h3 className="text-2xl font-bold tracking-tight">
                 Streaks &amp; Overview
               </h3>
-              <p className="text-xs sm:text-sm text-stone-600 leading-relaxed font-light">
-                See your daily routines, stay consistent and keep an overview of your journey.
+              <p className="text-sm text-white/90 leading-relaxed font-light">
+                Know what to do today, stay consistent and see your journey at a glance.
               </p>
             </div>
           </div>
         </div>
 
-        {/* Bottom CTA / Continuation trigger */}
-        <div className="text-center pt-4">
+        {/* Continuation Button */}
+        <div className="text-center pt-2">
           <button
             onClick={onContinue}
-            className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-stone-600 hover:text-stone-950 transition-colors group"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white text-stone-950 font-mono text-xs uppercase tracking-wider font-bold hover:bg-yellow-200 transition-colors shadow-lg group"
           >
-            <span>Explore The Daily Beauty Calendar Below</span>
+            <span>Explore Your Daily Beauty Calendar</span>
             <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
           </button>
         </div>

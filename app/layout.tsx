@@ -22,7 +22,7 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body className="font-sans antialiased bg-[#0B0B0E] text-stone-900 transition-colors duration-700 selection:bg-violet-600 selection:text-white">
+      <body className="font-sans antialiased bg-[#1B0E33] text-white transition-colors duration-700 selection:bg-yellow-400 selection:text-stone-950">
         {children}
       </body>
     </html>

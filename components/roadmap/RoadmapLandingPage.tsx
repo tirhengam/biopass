@@ -2,11 +2,12 @@
 
 import React, { useState, useEffect } from "react";
 import { Navbar } from "./Navbar";
-import { Chapter1Promise } from "./Chapter1Promise";
+import { Chapter1Hero } from "./Chapter1Hero";
 import { Chapter2StartWithYou } from "./Chapter2StartWithYou";
-import { Chapter3BeautyRoadmap } from "./Chapter3BeautyRoadmap";
-import { Chapter4TodayRoutine } from "./Chapter4TodayRoutine";
-import { FinalSectionCTA } from "./FinalSectionCTA";
+import { Chapter3Calendar } from "./Chapter3Calendar";
+import { Chapter4Today } from "./Chapter4Today";
+import { Chapter5AdaptLearn } from "./Chapter5AdaptLearn";
+import { Chapter6Final } from "./Chapter6Final";
 import { ContactModal } from "./ContactModal";
 
 export const RoadmapLandingPage: React.FC = () => {
@@ -18,8 +19,9 @@ export const RoadmapLandingPage: React.FC = () => {
       "section-promise",
       "section-start-with-you",
       "section-calendar",
-      "section-routine",
-      "section-final-cta",
+      "section-today",
+      "section-adapt",
+      "section-final",
     ];
 
     const handleScroll = () => {
@@ -51,33 +53,36 @@ export const RoadmapLandingPage: React.FC = () => {
   };
 
   return (
-    <div className="relative w-full min-h-screen font-sans selection:bg-violet-600 selection:text-white">
-      {/* Dynamic Theme-Adaptive Navbar — Always featuring "TRY THE DEMO" */}
+    <div className="relative w-full min-h-screen font-sans selection:bg-yellow-400 selection:text-stone-950">
+      {/* Dynamic Theme-Adaptive Navbar */}
       <Navbar
         activeSection={activeSection}
         onOpenContact={() => setIsContactOpen(true)}
       />
 
-      {/* Main Streamlined Visual Story Flow */}
+      {/* Main Colorful 6-Chapter Flow */}
       <main className="w-full">
-        {/* 1. Hero: BioPass + Conceptual Dashboard with 5 Products (Dark Background) */}
-        <Chapter1Promise
+        {/* CHAPTER 1 — HERO (Deep Purple / Violet) */}
+        <Chapter1Hero
           onExplore={() => scrollToSection("section-start-with-you")}
         />
 
-        {/* 2. Chapter 2: Don't start with another product. Start with you. (3 Visual Columns: Photo Woman, Timeline, Calendar Streaks) */}
+        {/* CHAPTER 2 — START WITH YOU (Coral / Soft Bright Pink) */}
         <Chapter2StartWithYou
           onContinue={() => scrollToSection("section-calendar")}
         />
 
-        {/* 3. Chapter 3: Prominent Daily Beauty Calendar ("Your roadmap connects directly to what you do each day.") */}
-        <Chapter3BeautyRoadmap />
+        {/* CHAPTER 3 — YOUR DAILY BEAUTY CALENDAR (Bright Green / Mint) */}
+        <Chapter3Calendar />
 
-        {/* 4. Chapter 4: Today's Routine & Everyday Consistency */}
-        <Chapter4TodayRoutine />
+        {/* CHAPTER 4 — TODAY (Yellow / Warm Cream) */}
+        <Chapter4Today />
 
-        {/* 5. Final Section: "Your beauty goal is a journey. Give it a roadmap." + TRY THE DEMO */}
-        <FinalSectionCTA
+        {/* CHAPTER 5 — ADAPT & LEARN (Blue / Lavender / Periwinkle) */}
+        <Chapter5AdaptLearn />
+
+        {/* CHAPTER 6 — FINAL (Deep Purple) */}
+        <Chapter6Final
           onOpenContact={() => setIsContactOpen(true)}
         />
       </main>
