@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "BioPass — Personal Product Intelligence | Where Science Meets Beauty",
+  title: "BioPass — AI-Powered Personal Beauty Roadmap",
   description:
-    "BioPass uses AI to connect you, your products, their ingredients and science — helping you discover cosmetics that match your needs, preferences and routine.",
+    "Your path to better skin starts with a plan. BioPass turns your beauty goals into a personalized roadmap, daily routine, ingredient strategy, and milestones.",
 };
 
 export default function RootLayout({
@@ -22,7 +22,7 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body className="font-sans antialiased bg-noir text-white selection:bg-hotpink selection:text-white">
+      <body className="font-sans antialiased bg-[#0B0B0E] text-stone-900 transition-colors duration-700 selection:bg-violet-600 selection:text-white">
         {children}
       </body>
     </html>
