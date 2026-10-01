@@ -1,34 +1,37 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import Image from "next/image";
-import { Check, Flame, Clock, Sun, Moon, Sparkles } from "lucide-react";
+import { AlertCircle, ArrowRight, Check, Sparkles, SlidersHorizontal, Layers, CheckCircle2 } from "lucide-react";
 
 export const Chapter4Today: React.FC = () => {
-  const [amRoutine, setAmRoutine] = useState([
-    { name: "Cleanser", done: true },
-    { name: "Vitamin C", done: true },
-    { name: "Moisturizer", done: true },
-    { name: "SPF", done: true },
-  ]);
+  const overloadFragments = [
+    { label: "INGREDIENTS", icon: "🫧", pos: "top-2 left-4 sm:-top-4 sm:left-6" },
+    { label: "10-STEP ROUTINES", icon: "⏰", pos: "top-14 right-2 sm:top-2 sm:right-8" },
+    { label: "TRENDS", icon: "📈", pos: "top-32 -left-3 sm:top-28 sm:-left-6" },
+    { label: "REVIEWS", icon: "⭐", pos: "bottom-24 -left-2 sm:bottom-28 sm:left-4" },
+    { label: "PRODUCTS", icon: "🧴", pos: "bottom-8 -left-3 sm:bottom-4 sm:left-12" },
+    { label: "SCIENCE PAPERS", icon: "🔬", pos: "top-28 right-0 sm:top-28 sm:-right-4" },
+    { label: "SOCIAL MEDIA HYPE", icon: "📱", pos: "bottom-16 right-1 sm:bottom-12 sm:right-6" },
+  ];
 
-  const [pmRoutine, setPmRoutine] = useState([
-    { name: "Cleanser", done: false },
-    { name: "Hydration", done: false },
-    { name: "Moisturizer", done: false },
-  ]);
-
-  const toggleAm = (idx: number) => {
-    setAmRoutine((prev) =>
-      prev.map((item, i) => (i === idx ? { ...item, done: !item.done } : item))
-    );
-  };
-
-  const togglePm = (idx: number) => {
-    setPmRoutine((prev) =>
-      prev.map((item, i) => (i === idx ? { ...item, done: !item.done } : item))
-    );
-  };
+  const clarityPoints = [
+    {
+      title: "WHAT FITS ME",
+      desc: "Targeted to your biological starting point and current barrier condition.",
+      color: "bg-emerald-500",
+    },
+    {
+      title: "WHAT WORKS TOGETHER",
+      desc: "Active ingredient synergy mapped across days with zero chemical clashes.",
+      color: "bg-purple-600",
+    },
+    {
+      title: "WHAT TO DO NEXT",
+      desc: "Clear everyday routine with scheduled check-ins and gradual phase evolution.",
+      color: "bg-indigo-600",
+    },
+  ];
 
   return (
     <section
@@ -36,171 +39,116 @@ export const Chapter4Today: React.FC = () => {
       className="relative min-h-screen flex flex-col justify-between py-24 sm:py-32 px-6 sm:px-12 bg-[#FDE047] text-[#1B0E33] transition-colors duration-700 overflow-hidden"
     >
       {/* Soft Ambient Background Lighting */}
-      <div className="absolute top-1/4 right-1/4 w-[500px] h-[500px] bg-white/30 rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute top-1/4 right-1/4 w-[500px] h-[500px] bg-white/40 rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute bottom-10 left-10 w-[400px] h-[400px] bg-amber-300/40 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="max-w-6xl mx-auto w-full space-y-12 my-auto z-10">
-        {/* Section Header */}
-        <div className="max-w-3xl space-y-3">
+        {/* Section Header: THE PROBLEM */}
+        <div className="max-w-3xl space-y-4">
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#1B0E33]/10 border border-[#1B0E33]/20 text-[#1B0E33] text-xs font-mono uppercase tracking-[0.16em] font-bold">
-            <Sparkles className="w-3.5 h-3.5" />
-            <span>Chapter 04 · Today</span>
+            <AlertCircle className="w-3.5 h-3.5 text-[#1B0E33]" />
+            <span>Chapter 04 · The Dilemma</span>
           </div>
 
           <h2 className="text-4xl sm:text-5xl lg:text-6xl font-light tracking-tight text-[#1B0E33] leading-[1.08]">
-            One day at a time.
+            Too much beauty information. <br />
+            <span className="font-normal italic text-[#5C329C]">Too little clarity.</span>
           </h2>
 
-          <p className="text-xl sm:text-2xl text-[#3A1E68] font-light italic">
-            &ldquo;Your roadmap becomes your everyday routine.&rdquo;
-          </p>
+          <div className="text-lg sm:text-xl text-[#3A1E68] font-light leading-relaxed max-w-2xl space-y-1">
+            <p className="font-medium text-[#1B0E33]">
+              Products. Ingredients. Reviews. Trends. Studies.
+            </p>
+            <p className="italic">
+              More information doesn&apos;t always make choosing easier.
+            </p>
+          </div>
         </div>
 
-        {/* TODAY VIEW CARD + CELEBRATING 3D CHARACTER */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-          {/* Main Today Card (7 Cols) */}
-          <div className="lg:col-span-7 bg-[#FFFDF0] rounded-3xl p-7 sm:p-9 border-2 border-[#1B0E33]/15 shadow-[0_20px_50px_rgba(27,14,51,0.12)] space-y-6">
-            {/* Header: TODAY DAY 12 / 14 */}
-            <div className="flex items-center justify-between pb-4 border-b border-[#1B0E33]/10">
-              <div>
-                <span className="text-xs font-mono uppercase tracking-widest text-[#5C329C] font-bold block">
-                  TODAY
-                </span>
-                <h3 className="text-2xl font-black text-[#1B0E33] mt-0.5 font-mono">
-                  DAY 12 / 14
-                </h3>
-              </div>
-
-              <div className="flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#1B0E33] text-yellow-300 text-xs font-mono font-bold shadow-sm">
-                <Flame className="w-4 h-4 text-orange-400 fill-orange-400" />
-                <span>🔥 12-day streak</span>
-              </div>
+        {/* TRANSITION FLOW: OVERLOAD → BIOPASS → PERSONAL CLARITY */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center pt-2">
+          {/* LEFT: INFORMATION OVERLOAD (Stressed character at laptop with floating fragments) */}
+          <div className="lg:col-span-6 relative flex flex-col items-center justify-center p-6 sm:p-8 rounded-3xl bg-[#FFFDF0]/80 border-2 border-[#1B0E33]/15 shadow-xl min-h-[440px]">
+            {/* Stage Tag */}
+            <div className="absolute top-4 left-6 px-3 py-1 rounded-full bg-[#1B0E33]/10 border border-[#1B0E33]/15 text-[10px] font-mono uppercase tracking-widest font-extrabold text-[#1B0E33]">
+              01 · Information Overload
             </div>
 
-            {/* Split AM & PM Routines */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-              {/* AM ROUTINE */}
-              <div className="p-5 rounded-2xl bg-amber-100/70 border border-amber-300/80 space-y-3">
-                <div className="flex items-center justify-between pb-2 border-b border-amber-300/60">
-                  <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-wider font-extrabold text-amber-950">
-                    <Sun className="w-4 h-4 text-amber-600" />
-                    <span>AM</span>
-                  </div>
-                  <span className="text-[10px] font-mono text-emerald-800 bg-emerald-200/80 px-2 py-0.5 rounded-full font-bold">
-                    Completed
-                  </span>
-                </div>
-
-                <div className="space-y-2">
-                  {amRoutine.map((item, idx) => (
-                    <div
-                      key={idx}
-                      onClick={() => toggleAm(idx)}
-                      className="flex items-center gap-3 p-2 rounded-xl hover:bg-white/80 transition-colors cursor-pointer group"
-                    >
-                      <div
-                        className={`w-5 h-5 rounded-lg border flex items-center justify-center transition-colors ${
-                          item.done
-                            ? "bg-[#1B0E33] border-[#1B0E33] text-yellow-300"
-                            : "border-stone-400 bg-white"
-                        }`}
-                      >
-                        {item.done && <Check className="w-3.5 h-3.5 stroke-[3]" />}
-                      </div>
-                      <span className={`text-xs font-bold ${item.done ? "text-[#1B0E33]" : "text-stone-600"}`}>
-                        {item.name}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* PM ROUTINE */}
-              <div className="p-5 rounded-2xl bg-purple-100/60 border border-purple-300/70 space-y-3">
-                <div className="flex items-center justify-between pb-2 border-b border-purple-300/50">
-                  <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-wider font-extrabold text-purple-950">
-                    <Moon className="w-4 h-4 text-purple-700" />
-                    <span>PM</span>
-                  </div>
-                  <span className="text-[10px] font-mono text-purple-800 bg-purple-200/80 px-2 py-0.5 rounded-full font-bold">
-                    Scheduled
-                  </span>
-                </div>
-
-                <div className="space-y-2">
-                  {pmRoutine.map((item, idx) => (
-                    <div
-                      key={idx}
-                      onClick={() => togglePm(idx)}
-                      className="flex items-center gap-3 p-2 rounded-xl hover:bg-white/80 transition-colors cursor-pointer group"
-                    >
-                      <div
-                        className={`w-5 h-5 rounded-lg border flex items-center justify-center transition-colors ${
-                          item.done
-                            ? "bg-[#1B0E33] border-[#1B0E33] text-yellow-300"
-                            : "border-stone-400 bg-white"
-                        }`}
-                      >
-                        {item.done && <Check className="w-3.5 h-3.5 stroke-[3]" />}
-                      </div>
-                      <span className={`text-xs font-bold ${item.done ? "text-[#1B0E33]" : "text-stone-600"}`}>
-                        {item.name}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-
-            {/* Next Steps Horizon */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
-              <div className="p-4 rounded-2xl bg-amber-50 border border-amber-200">
-                <span className="text-[10px] font-mono uppercase tracking-wider text-amber-800 block font-bold">
-                  NEXT:
-                </span>
-                <strong className="text-sm text-stone-900">Recovery Day (Tomorrow)</strong>
-              </div>
-
-              <div className="p-4 rounded-2xl bg-purple-50 border border-purple-200">
-                <span className="text-[10px] font-mono uppercase tracking-wider text-purple-800 block font-bold">
-                  NEXT CHECK-IN:
-                </span>
-                <strong className="text-sm text-purple-950">In 3 days (Milestone)</strong>
-              </div>
-            </div>
-
-            {/* Metrics */}
-            <div className="pt-2 border-t border-[#1B0E33]/10 flex flex-wrap items-center justify-between text-xs font-mono font-bold text-[#1B0E33]">
-              <div className="flex items-center gap-2">
-                <Flame className="w-4 h-4 text-orange-600 fill-orange-500" />
-                <span>🔥 12-day streak</span>
-              </div>
-              <div className="flex items-center gap-2 text-emerald-800">
-                <Check className="w-4 h-4 stroke-[3]" />
-                <span>92% routine completed this week</span>
-              </div>
-            </div>
-          </div>
-
-          {/* Right Column: Character Celebrating Success & Main Message (5 Cols) */}
-          <div className="lg:col-span-5 flex flex-col items-center justify-center space-y-6 text-center">
-            {/* Uploaded 3D Character (Progress / Achievement) */}
-            <div className="relative w-48 sm:w-56 h-72 drop-shadow-2xl hover:scale-105 transition-transform duration-500">
+            {/* Stressed Character at Laptop */}
+            <div className="relative w-56 sm:w-64 lg:w-72 aspect-square my-auto drop-shadow-2xl z-10 hover:scale-105 transition-transform duration-500">
               <Image
-                src="/characters/character-celebrating-cake.png"
-                alt="BioPass celebrating routine consistency"
+                src="/characters/character-laptop-stressed.png"
+                alt="BioPass user overwhelmed by too much beauty information"
                 fill
                 className="object-contain"
               />
             </div>
 
-            {/* Main Message */}
-            <div className="p-6 rounded-3xl bg-[#1B0E33] text-white shadow-xl max-w-sm space-y-2 border border-white/20">
-              <span className="text-[10px] font-mono uppercase tracking-widest text-yellow-300 font-bold block">
-                The Philosophy
-              </span>
-              <p className="text-xl sm:text-2xl font-light italic text-yellow-100">
-                &ldquo;Build consistency, not product clutter.&rdquo;
-              </p>
+            {/* Scattered Floating Visual Fragments */}
+            {overloadFragments.map((frag, idx) => (
+              <div
+                key={idx}
+                className={`absolute ${frag.pos} z-20 px-3 py-1.5 rounded-full bg-[#1B0E33] text-white font-mono text-[10px] sm:text-[11px] font-extrabold shadow-lg flex items-center gap-1.5 border border-white/20 hover:scale-110 transition-transform cursor-default animate-pulse-subtle`}
+              >
+                <span>{frag.icon}</span>
+                <span>{frag.label}</span>
+              </div>
+            ))}
+
+            <div className="mt-2 text-center text-xs font-mono font-bold text-[#5C329C] bg-[#1B0E33]/5 px-4 py-1.5 rounded-full">
+              Confusion · Clashing Actives · Trial &amp; Error
+            </div>
+          </div>
+
+          {/* RIGHT: BIOPASS INTELLIGENCE → PERSONAL CLARITY */}
+          <div className="lg:col-span-6 space-y-4">
+            {/* Funnel Bridge */}
+            <div className="p-4 rounded-2xl bg-[#1B0E33] text-white flex items-center justify-between shadow-lg">
+              <div className="flex items-center gap-2.5">
+                <div className="w-8 h-8 rounded-xl bg-yellow-400 text-stone-950 flex items-center justify-center font-bold">
+                  <Sparkles className="w-4 h-4 fill-stone-950" />
+                </div>
+                <div>
+                  <span className="text-xs font-mono font-extrabold uppercase tracking-wider text-yellow-300 block">
+                    BIOPASS INTELLIGENCE FILTER
+                  </span>
+                  <span className="text-[11px] text-purple-200/80 font-mono">
+                    Filtering the noise into your personal roadmap
+                  </span>
+                </div>
+              </div>
+              <ArrowRight className="w-5 h-5 text-yellow-400 hidden sm:block" />
+            </div>
+
+            {/* 3 Clean Output Cards: What Fits Me, What Works Together, What To Do Next */}
+            <div className="space-y-3">
+              {clarityPoints.map((item, idx) => (
+                <div
+                  key={idx}
+                  className="p-5 rounded-2xl bg-[#FFFDF0] border-2 border-[#1B0E33]/15 shadow-md flex items-start gap-4 hover:shadow-xl transition-all group"
+                >
+                  <div className={`w-8 h-8 rounded-xl ${item.color} text-white flex items-center justify-center font-bold shrink-0 mt-0.5 shadow-sm group-hover:scale-110 transition-transform`}>
+                    <Check className="w-4 h-4 stroke-[3]" />
+                  </div>
+                  <div className="space-y-1">
+                    <h4 className="text-base font-bold text-[#1B0E33] font-mono tracking-tight flex items-center gap-2">
+                      <span>{item.title}</span>
+                      <span className="text-[10px] text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded-full font-bold">
+                        ✓ CLARITY
+                      </span>
+                    </h4>
+                    <p className="text-xs sm:text-sm text-[#3A1E68] font-light leading-relaxed">
+                      {item.desc}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Bottom Takeaway */}
+            <div className="p-4 rounded-2xl bg-[#1B0E33]/10 border border-[#1B0E33]/20 flex items-center justify-between text-xs font-mono text-[#1B0E33] font-bold">
+              <span>OVERLOAD ➔ BIOPASS ➔ PERSONAL CLARITY</span>
+              <span className="text-[#5C329C]">No guess work.</span>
             </div>
           </div>
         </div>
