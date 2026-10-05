@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { Navbar } from "./Navbar";
 import { Chapter1Hero } from "./Chapter1Hero";
 import { Chapter2StartWithYou } from "./Chapter2StartWithYou";
@@ -40,7 +40,8 @@ export const RoadmapLandingPage: React.FC = () => {
           // Select the latest intersecting section in document order
           for (let i = sectionIds.length - 1; i >= 0; i--) {
             if (intersecting.has(sectionIds[i])) {
-              setActiveSection(i + 1);
+              const nextSection = i + 1;
+              setActiveSection((prev) => (prev === nextSection ? prev : nextSection));
               break;
             }
           }
@@ -61,32 +62,33 @@ export const RoadmapLandingPage: React.FC = () => {
     return () => observer.disconnect();
   }, []);
 
-  const scrollToSection = (id: string) => {
+  const scrollToSection = useCallback((id: string) => {
     const el = document.getElementById(id);
     if (el) {
       el.scrollIntoView({ behavior: "smooth" });
     }
-  };
+  }, []);
+
+  const handleOpenContact = useCallback(() => setIsContactOpen(true), []);
+  const handleCloseContact = useCallback(() => setIsContactOpen(false), []);
+  const handleExplore = useCallback(() => scrollToSection("section-start-with-you"), [scrollToSection]);
+  const handleContinue = useCallback(() => scrollToSection("section-calendar"), [scrollToSection]);
 
   return (
     <div className="relative w-full min-h-screen font-sans selection:bg-yellow-400 selection:text-stone-950">
       {/* Dynamic Theme-Adaptive Navbar */}
       <Navbar
         activeSection={activeSection}
-        onOpenContact={() => setIsContactOpen(true)}
+        onOpenContact={handleOpenContact}
       />
 
       {/* Main Colorful 6-Chapter Flow */}
       <main className="w-full">
         {/* CHAPTER 1 — HERO (Deep Purple / Violet) */}
-        <Chapter1Hero
-          onExplore={() => scrollToSection("section-start-with-you")}
-        />
+        <Chapter1Hero onExplore={handleExplore} />
 
         {/* CHAPTER 2 — START WITH YOU (Coral / Soft Bright Pink) */}
-        <Chapter2StartWithYou
-          onContinue={() => scrollToSection("section-calendar")}
-        />
+        <Chapter2StartWithYou onContinue={handleContinue} />
 
         {/* CHAPTER 3 — YOUR DAILY BEAUTY CALENDAR (Bright Green / Mint) */}
         <Chapter3Calendar />
@@ -98,15 +100,13 @@ export const RoadmapLandingPage: React.FC = () => {
         <Chapter5AdaptLearn />
 
         {/* CHAPTER 6 — FINAL (Deep Purple) */}
-        <Chapter6Final
-          onOpenContact={() => setIsContactOpen(true)}
-        />
+        <Chapter6Final onOpenContact={handleOpenContact} />
       </main>
 
       {/* Advisory / Inquiries Modal */}
       <ContactModal
         isOpen={isContactOpen}
-        onClose={() => setIsContactOpen(false)}
+        onClose={handleCloseContact}
       />
     </div>
   );

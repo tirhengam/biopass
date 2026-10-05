@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import { GitCommit, Calendar, Clock, Sparkles, ChevronRight, Check } from "lucide-react";
 
-export const Chapter5AdaptLearn: React.FC = () => {
+export const Chapter5AdaptLearn: React.FC = React.memo(() => {
   const [activeGoal, setActiveGoal] = useState<number>(0);
 
   const roadmapGoals = [
@@ -363,4 +363,4 @@ export const Chapter5AdaptLearn: React.FC = () => {
       </div>
     </section>
   );
-};
+});

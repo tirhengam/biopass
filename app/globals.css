@@ -4,12 +4,17 @@
 
 @layer base {
   html {
-    scroll-behavior: smooth;
     background-color: #060608;
     color: #FFFFFF;
     font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    html {
+      scroll-behavior: smooth;
+    }
   }
 
   body {

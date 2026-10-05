@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import Image from "next/image";
 import { Calendar as CalendarIcon, Flame, Check, Sparkles } from "lucide-react";
 
-export const Chapter3Calendar: React.FC = () => {
+export const Chapter3Calendar: React.FC = React.memo(() => {
   const [hoveredDay, setHoveredDay] = useState<number>(1); // Default to Tuesday
 
   const calendarDays = [
@@ -355,4 +355,4 @@ export const Chapter3Calendar: React.FC = () => {
       </div>
     </section>
   );
-};
+});

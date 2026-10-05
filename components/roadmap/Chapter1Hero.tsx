@@ -9,7 +9,7 @@ interface Chapter1HeroProps {
   onExplore: () => void;
 }
 
-export const Chapter1Hero: React.FC<Chapter1HeroProps> = ({
+export const Chapter1Hero: React.FC<Chapter1HeroProps> = React.memo(({
   onExplore,
 }) => {
   return (
@@ -443,4 +443,4 @@ export const Chapter1Hero: React.FC<Chapter1HeroProps> = ({
       </div>
     </section>
   );
-};
+});

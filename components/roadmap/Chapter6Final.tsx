@@ -8,7 +8,7 @@ interface Chapter6FinalProps {
   onOpenContact: () => void;
 }
 
-export const Chapter6Final: React.FC<Chapter6FinalProps> = ({
+export const Chapter6Final: React.FC<Chapter6FinalProps> = React.memo(({
   onOpenContact,
 }) => {
   const matchProducts = [
@@ -301,4 +301,4 @@ export const Chapter6Final: React.FC<Chapter6FinalProps> = ({
       </footer>
     </section>
   );
-};
+});

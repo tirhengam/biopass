@@ -3,7 +3,7 @@
 import React from "react";
 import { AlertCircle, ArrowRight, Check, Sparkles, SlidersHorizontal, Layers, CheckCircle2 } from "lucide-react";
 
-export const Chapter4Today: React.FC = () => {
+export const Chapter4Today: React.FC = React.memo(() => {
   const overloadFragments = [
     { label: "INGREDIENTS", icon: "🫧", pos: "top-2 left-4 sm:-top-4 sm:left-6" },
     { label: "10-STEP ROUTINES", icon: "⏰", pos: "top-14 right-2 sm:top-2 sm:right-8" },
@@ -264,4 +264,4 @@ export const Chapter4Today: React.FC = () => {
       </div>
     </section>
   );
-};
+});

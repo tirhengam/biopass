@@ -8,7 +8,7 @@ interface Chapter2StartWithYouProps {
   onContinue: () => void;
 }
 
-export const Chapter2StartWithYou: React.FC<Chapter2StartWithYouProps> = ({
+export const Chapter2StartWithYou: React.FC<Chapter2StartWithYouProps> = React.memo(({
   onContinue,
 }) => {
   return (
@@ -380,4 +380,4 @@ export const Chapter2StartWithYou: React.FC<Chapter2StartWithYouProps> = ({
       </div>
     </section>
   );
-};
+});
