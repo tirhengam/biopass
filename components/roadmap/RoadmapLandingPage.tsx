@@ -24,25 +24,41 @@ export const RoadmapLandingPage: React.FC = () => {
       "section-final",
     ];
 
-    const handleScroll = () => {
-      const scrollPosition = window.scrollY + window.innerHeight / 3;
+    const intersecting = new Set<string>();
 
-      for (let i = sectionIds.length - 1; i >= 0; i--) {
-        const el = document.getElementById(sectionIds[i]);
-        if (el) {
-          const top = el.offsetTop;
-          if (scrollPosition >= top) {
-            setActiveSection(i + 1);
-            break;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            intersecting.add(entry.target.id);
+          } else {
+            intersecting.delete(entry.target.id);
+          }
+        });
+
+        if (intersecting.size > 0) {
+          // Select the latest intersecting section in document order
+          for (let i = sectionIds.length - 1; i >= 0; i--) {
+            if (intersecting.has(sectionIds[i])) {
+              setActiveSection(i + 1);
+              break;
+            }
           }
         }
+      },
+      {
+        // Triggers section activation when section top reaches ~33% from the top of viewport
+        rootMargin: "-33% 0px -50% 0px",
+        threshold: 0,
       }
-    };
+    );
 
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll();
+    sectionIds.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
 
-    return () => window.removeEventListener("scroll", handleScroll);
+    return () => observer.disconnect();
   }, []);
 
   const scrollToSection = (id: string) => {

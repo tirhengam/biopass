@@ -51,13 +51,17 @@ export const Chapter2StartWithYou: React.FC<Chapter2StartWithYouProps> = ({
             {/* Visual: Blonde Avatar Pointing to Observations */}
             <div className="relative w-full h-44 rounded-2xl bg-white/10 border border-white/15 p-2 flex items-end justify-between overflow-hidden">
               <div className="relative w-28 h-44 -mb-1 drop-shadow-xl shrink-0">
-                <Image
-                  src="/characters/character-pointing-blonde.png"
-                  alt="BioPass user discovering skin needs"
-                  fill
-                  sizes="120px"
-                  className="object-contain object-bottom"
-                />
+                <picture>
+                  <source media="(min-width: 1024px)" srcSet="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" />
+                  <source media="(max-width: 1023px)" srcSet="/characters/character-pointing-blonde-mobile.webp" />
+                  <img
+                    src="/characters/character-pointing-blonde-mobile.webp"
+                    alt="BioPass user discovering skin needs"
+                    loading="lazy"
+                    decoding="async"
+                    className="w-full h-full object-contain object-bottom"
+                  />
+                </picture>
               </div>
 
               <div className="flex flex-col items-end gap-1.5 pb-3 pr-2 z-10">
@@ -191,12 +195,17 @@ export const Chapter2StartWithYou: React.FC<Chapter2StartWithYouProps> = ({
 
               {/* Uploaded Blonde Character (pointing upward) */}
               <div className="relative w-40 sm:w-44 h-64 -mt-10 -ml-2 group-hover:scale-105 transition-transform duration-500 drop-shadow-2xl shrink-0 z-10">
-                <Image
-                  src="/characters/character-pointing-blonde.png"
-                  alt="BioPass user discovering skin needs"
-                  fill
-                  className="object-contain object-bottom"
-                />
+                <picture>
+                  <source media="(max-width: 1023px)" srcSet="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" />
+                  <source media="(min-width: 1024px)" srcSet="/characters/character-pointing-blonde.webp" />
+                  <img
+                    src="/characters/character-pointing-blonde.webp"
+                    alt="BioPass user discovering skin needs"
+                    loading="lazy"
+                    decoding="async"
+                    className="w-full h-full object-contain object-bottom"
+                  />
+                </picture>
               </div>
 
               {/* Pointing Target: Cluster of Visual Skin Observations */}

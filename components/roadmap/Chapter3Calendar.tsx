@@ -128,14 +128,17 @@ export const Chapter3Calendar: React.FC = () => {
           {/* Right Column: Uploaded Reading Avatar (sitting cross-legged with orange book) */}
           <div className="flex justify-center lg:justify-end shrink-0">
             <div className="relative w-44 sm:w-72 lg:w-80 aspect-[854/1024] drop-shadow-2xl">
-              <Image
-                src="/characters/character-reading-avatar.png"
-                alt="BioPass user calmly following and understanding their beauty roadmap"
-                fill
-                sizes="(max-width: 640px) 176px, 320px"
-                priority
-                className="object-contain"
-              />
+              <picture>
+                <source media="(max-width: 640px)" srcSet="/characters/character-reading-avatar-mobile.webp" />
+                <source media="(min-width: 641px)" srcSet="/characters/character-reading-avatar.webp" />
+                <img
+                  src="/characters/character-reading-avatar.webp"
+                  alt="BioPass user calmly following and understanding their beauty roadmap"
+                  loading="lazy"
+                  decoding="async"
+                  className="w-full h-full object-contain"
+                />
+              </picture>
             </div>
           </div>
         </div>

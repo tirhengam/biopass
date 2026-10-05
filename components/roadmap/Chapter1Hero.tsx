@@ -411,15 +411,19 @@ export const Chapter1Hero: React.FC<Chapter1HeroProps> = ({
             </div>
           </div>
 
-          {/* UPLOADED 3D CHARACTER (Delighted / Loving their routine) — Desktop Only (hidden md:block) */}
+          {/* UPLOADED 3D CHARACTER (Delighted / Loving their routine) — Desktop Only (zero mobile download) */}
           <div className="hidden md:block absolute -top-12 -right-8 w-44 lg:w-52 aspect-[1/1] z-20 pointer-events-none drop-shadow-2xl">
-            <Image
-              src="/characters/character-heart-eyes.png"
-              alt="Delighted BioPass user loving their personalized beauty roadmap"
-              fill
-              sizes="(min-width: 1024px) 208px, 176px"
-              className="object-contain"
-            />
+            <picture>
+              <source media="(max-width: 767px)" srcSet="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" />
+              <source media="(min-width: 768px)" srcSet="/characters/character-heart-eyes.webp" />
+              <img
+                src="/characters/character-heart-eyes.webp"
+                alt="Delighted BioPass user loving their personalized beauty roadmap"
+                loading="lazy"
+                decoding="async"
+                className="w-full h-full object-contain"
+              />
+            </picture>
           </div>
         </div>
       </div>

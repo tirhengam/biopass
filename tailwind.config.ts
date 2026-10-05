@@ -50,11 +50,11 @@ const config: Config = {
         "ink-muted": "#64748B",
       },
       fontFamily: {
-        sans: ["'Space Grotesk'", "system-ui", "-apple-system", "sans-serif"],
-        body: ["'Space Grotesk'", "sans-serif"],
-        display: ["'Space Grotesk'", "system-ui", "sans-serif"],
+        sans: ["var(--font-space-grotesk)", "'Space Grotesk'", "system-ui", "-apple-system", "sans-serif"],
+        body: ["var(--font-space-grotesk)", "'Space Grotesk'", "sans-serif"],
+        display: ["var(--font-space-grotesk)", "'Space Grotesk'", "system-ui", "sans-serif"],
         fredoka: ["'Fredoka'", "'Nunito'", "sans-serif"],
-        space: ["'Space Grotesk'", "sans-serif"],
+        space: ["var(--font-space-grotesk)", "'Space Grotesk'", "sans-serif"],
       },
       letterSpacing: {
         editorial: "0.08em",

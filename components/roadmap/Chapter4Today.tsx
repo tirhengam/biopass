@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import Image from "next/image";
 import { AlertCircle, ArrowRight, Check, Sparkles, SlidersHorizontal, Layers, CheckCircle2 } from "lucide-react";
 
 export const Chapter4Today: React.FC = () => {
@@ -75,13 +74,17 @@ export const Chapter4Today: React.FC = () => {
 
             {/* Stressed Character at Laptop */}
             <div className="relative w-44 h-44 my-auto drop-shadow-xl z-10">
-              <Image
-                src="/characters/character-laptop-stressed.png"
-                alt="BioPass user overwhelmed by too much beauty information"
-                fill
-                sizes="176px"
-                className="object-contain"
-              />
+              <picture>
+                <source media="(min-width: 1024px)" srcSet="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" />
+                <source media="(max-width: 1023px)" srcSet="/characters/character-laptop-stressed-mobile.webp" />
+                <img
+                  src="/characters/character-laptop-stressed-mobile.webp"
+                  alt="BioPass user overwhelmed by too much beauty information"
+                  loading="lazy"
+                  decoding="async"
+                  className="w-full h-full object-contain"
+                />
+              </picture>
             </div>
 
             {/* Few Information Fragments Around Avatar */}
@@ -175,12 +178,17 @@ export const Chapter4Today: React.FC = () => {
 
             {/* Stressed Character at Laptop */}
             <div className="relative w-56 sm:w-64 lg:w-72 aspect-square my-auto drop-shadow-2xl z-10 hover:scale-105 transition-transform duration-500">
-              <Image
-                src="/characters/character-laptop-stressed.png"
-                alt="BioPass user overwhelmed by too much beauty information"
-                fill
-                className="object-contain"
-              />
+              <picture>
+                <source media="(max-width: 1023px)" srcSet="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" />
+                <source media="(min-width: 1024px)" srcSet="/characters/character-laptop-stressed.webp" />
+                <img
+                  src="/characters/character-laptop-stressed.webp"
+                  alt="BioPass user overwhelmed by too much beauty information"
+                  loading="lazy"
+                  decoding="async"
+                  className="w-full h-full object-contain"
+                />
+              </picture>
             </div>
 
             {/* Scattered Floating Visual Fragments */}
