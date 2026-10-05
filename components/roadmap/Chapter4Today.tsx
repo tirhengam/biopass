@@ -55,7 +55,7 @@ export const Chapter4Today: React.FC = () => {
             <span className="font-normal italic text-[#5C329C]">Too little clarity.</span>
           </h2>
 
-          <div className="text-lg sm:text-xl text-[#3A1E68] font-light leading-relaxed max-w-2xl space-y-1">
+          <div className="hidden sm:block text-lg sm:text-xl text-[#3A1E68] font-light leading-relaxed max-w-2xl space-y-1">
             <p className="font-medium text-[#1B0E33]">
               Products. Ingredients. Reviews. Trends. Studies.
             </p>
@@ -65,8 +65,107 @@ export const Chapter4Today: React.FC = () => {
           </div>
         </div>
 
-        {/* TRANSITION FLOW: OVERLOAD → BIOPASS → PERSONAL CLARITY */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center pt-2">
+        {/* MOBILE VIEW (lg:hidden) — TOO MUCH INFORMATION ↓ BIOPASS ↓ CLARITY */}
+        <div className="lg:hidden flex flex-col space-y-4 pt-2">
+          {/* STEP 1: TOO MUCH INFORMATION (Stressed Laptop Avatar + Few Fragments) */}
+          <div className="relative rounded-3xl p-5 bg-[#FFFDF0]/90 border-2 border-[#1B0E33]/15 shadow-xl flex flex-col items-center justify-center overflow-hidden min-h-[340px]">
+            <div className="px-3 py-1 rounded-full bg-[#1B0E33]/10 border border-[#1B0E33]/15 text-[10px] font-mono uppercase tracking-widest font-extrabold text-[#1B0E33] mb-2">
+              TOO MUCH INFORMATION
+            </div>
+
+            {/* Stressed Character at Laptop */}
+            <div className="relative w-44 h-44 my-auto drop-shadow-xl z-10">
+              <Image
+                src="/characters/character-laptop-stressed.png"
+                alt="BioPass user overwhelmed by too much beauty information"
+                fill
+                sizes="176px"
+                className="object-contain"
+              />
+            </div>
+
+            {/* Few Information Fragments Around Avatar */}
+            <div className="absolute top-12 left-4 z-20 px-2.5 py-1 rounded-full bg-[#1B0E33] text-white font-mono text-[10px] font-bold shadow-md flex items-center gap-1 border border-white/20">
+              <span>🫧</span>
+              <span>INGREDIENTS</span>
+            </div>
+            <div className="absolute top-14 right-4 z-20 px-2.5 py-1 rounded-full bg-[#1B0E33] text-white font-mono text-[10px] font-bold shadow-md flex items-center gap-1 border border-white/20">
+              <span>⭐</span>
+              <span>REVIEWS</span>
+            </div>
+            <div className="absolute bottom-12 left-4 z-20 px-2.5 py-1 rounded-full bg-[#1B0E33] text-white font-mono text-[10px] font-bold shadow-md flex items-center gap-1 border border-white/20">
+              <span>📈</span>
+              <span>TRENDS</span>
+            </div>
+            <div className="absolute bottom-10 right-4 z-20 px-2.5 py-1 rounded-full bg-[#1B0E33] text-white font-mono text-[10px] font-bold shadow-md flex items-center gap-1 border border-white/20">
+              <span>🧴</span>
+              <span>PRODUCTS</span>
+            </div>
+
+            <div className="text-[10px] font-mono font-bold text-[#5C329C] bg-[#1B0E33]/5 px-3 py-1 rounded-full mt-2">
+              Noise · Clashing Actives · Confusion
+            </div>
+          </div>
+
+          {/* Connector 1 */}
+          <div className="flex flex-col items-center justify-center py-0.5 text-[#1B0E33]">
+            <span className="text-base font-mono font-bold tracking-wider">↓</span>
+          </div>
+
+          {/* STEP 2: BIOPASS INTELLIGENCE FILTER */}
+          <div className="p-3.5 rounded-2xl bg-[#1B0E33] text-white flex items-center justify-center gap-2.5 shadow-lg">
+            <div className="w-7 h-7 rounded-xl bg-yellow-400 text-stone-950 flex items-center justify-center font-bold shrink-0">
+              <Sparkles className="w-3.5 h-3.5 fill-stone-950" />
+            </div>
+            <span className="text-xs font-mono font-extrabold uppercase tracking-wider text-yellow-300">
+              BIOPASS INTELLIGENCE FILTER
+            </span>
+          </div>
+
+          {/* Connector 2 */}
+          <div className="flex flex-col items-center justify-center py-0.5 text-[#1B0E33]">
+            <span className="text-base font-mono font-bold tracking-wider">↓</span>
+          </div>
+
+          {/* STEP 3: CLARITY (3 Concise Outcomes) */}
+          <div className="space-y-2.5">
+            <div className="text-center">
+              <span className="text-[10px] font-mono uppercase tracking-widest text-[#1B0E33] font-extrabold bg-white/40 px-3 py-1 rounded-full border border-[#1B0E33]/15">
+                PERSONAL CLARITY
+              </span>
+            </div>
+
+            {clarityPoints.map((item, idx) => (
+              <div
+                key={idx}
+                className="p-3.5 rounded-2xl bg-[#FFFDF0] border-2 border-[#1B0E33]/15 shadow-sm flex items-center gap-3"
+              >
+                <div className={`w-7 h-7 rounded-xl ${item.color} text-white flex items-center justify-center font-bold shrink-0 shadow-sm`}>
+                  <Check className="w-3.5 h-3.5 stroke-[3]" />
+                </div>
+                <div className="flex-1">
+                  <div className="text-xs font-bold text-[#1B0E33] font-mono tracking-tight flex items-center justify-between">
+                    <span>{item.title}</span>
+                    <span className="text-[9px] text-emerald-800 bg-emerald-100 px-1.5 py-0.5 rounded font-bold">
+                      ✓ CLARITY
+                    </span>
+                  </div>
+                  <p className="text-[11px] text-[#3A1E68] font-light leading-snug mt-0.5">
+                    {item.desc}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Bottom Takeaway */}
+          <div className="p-3 rounded-2xl bg-[#1B0E33]/10 border border-[#1B0E33]/20 text-center text-[11px] font-mono text-[#1B0E33] font-bold">
+            OVERLOAD ➔ BIOPASS ➔ CLARITY
+          </div>
+        </div>
+
+        {/* DESKTOP VIEW (hidden lg:grid) — TRANSITION FLOW */}
+        <div className="hidden lg:grid grid-cols-12 gap-8 items-center pt-2">
           {/* LEFT: INFORMATION OVERLOAD (Stressed character at laptop with floating fragments) */}
           <div className="lg:col-span-6 relative flex flex-col items-center justify-center p-6 sm:p-8 rounded-3xl bg-[#FFFDF0]/80 border-2 border-[#1B0E33]/15 shadow-xl min-h-[440px]">
             {/* Stage Tag */}

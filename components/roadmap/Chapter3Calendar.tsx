@@ -127,11 +127,12 @@ export const Chapter3Calendar: React.FC = () => {
 
           {/* Right Column: Uploaded Reading Avatar (sitting cross-legged with orange book) */}
           <div className="flex justify-center lg:justify-end shrink-0">
-            <div className="relative w-60 sm:w-72 lg:w-80 aspect-[854/1024] drop-shadow-2xl">
+            <div className="relative w-44 sm:w-72 lg:w-80 aspect-[854/1024] drop-shadow-2xl">
               <Image
                 src="/characters/character-reading-avatar.png"
                 alt="BioPass user calmly following and understanding their beauty roadmap"
                 fill
+                sizes="(max-width: 640px) 176px, 320px"
                 priority
                 className="object-contain"
               />
@@ -140,35 +141,111 @@ export const Chapter3Calendar: React.FC = () => {
         </div>
 
         {/* CALENDAR CONTROLS & COLOR LEGEND */}
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-3 border-b border-white/20 gap-4">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-3 border-b border-white/20 gap-3">
           <div className="flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-yellow-300 text-stone-950 text-xs font-mono font-extrabold w-fit shadow-md">
             <Flame className="w-4 h-4 text-orange-600 fill-orange-500" />
             <span>🔥 9 Day Streak</span>
           </div>
 
-          {/* Color Legend */}
-          <div className="flex flex-wrap items-center gap-3 sm:gap-4 text-xs font-mono bg-black/20 px-4 py-2 rounded-full border border-white/20 backdrop-blur-md">
+          {/* Color Legend (scrollable on mobile) */}
+          <div className="flex items-center gap-3 sm:gap-4 text-xs font-mono bg-black/20 px-3.5 sm:px-4 py-2 rounded-full border border-white/20 backdrop-blur-md overflow-x-auto no-scrollbar whitespace-nowrap">
             <div className="flex items-center gap-1.5">
-              <span className="w-3 h-3 rounded-full bg-purple-400 shadow-sm" />
-              <span className="text-white font-medium">PURPLE — Niacinamide</span>
+              <span className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-purple-400 shadow-sm" />
+              <span className="text-white font-medium text-[11px] sm:text-xs">Niacinamide</span>
             </div>
             <div className="flex items-center gap-1.5">
-              <span className="w-3 h-3 rounded-full bg-amber-300 shadow-sm" />
-              <span className="text-white font-medium">ORANGE — Vitamin C</span>
+              <span className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-amber-300 shadow-sm" />
+              <span className="text-white font-medium text-[11px] sm:text-xs">Vitamin C</span>
             </div>
             <div className="flex items-center gap-1.5">
-              <span className="w-3 h-3 rounded-full bg-sky-300 shadow-sm" />
-              <span className="text-white font-medium">BLUE — Peptide</span>
+              <span className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-sky-300 shadow-sm" />
+              <span className="text-white font-medium text-[11px] sm:text-xs">Peptide</span>
             </div>
             <div className="flex items-center gap-1.5">
-              <span className="w-3 h-3 rounded-full border-2 border-white bg-transparent" />
-              <span className="text-white font-medium">LIGHT / EMPTY — Recovery</span>
+              <span className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full border-2 border-white bg-transparent" />
+              <span className="text-white font-medium text-[11px] sm:text-xs">Recovery</span>
             </div>
           </div>
         </div>
 
-        {/* DOMINANT VISUAL: LARGE 7-DAY BEAUTY CALENDAR GRID (Completely Unobstructed) */}
-        <div className="relative">
+        {/* MOBILE VIEW (sm:hidden) — Horizontally Scrollable 7-Day Week */}
+        <div className="sm:hidden space-y-3">
+          <div className="flex items-center justify-between text-[10px] font-mono text-emerald-200 uppercase tracking-widest px-1">
+            <span>7-DAY ROTATION</span>
+            <span className="text-yellow-300">← Swipe week →</span>
+          </div>
+
+          <div className="flex overflow-x-auto gap-2.5 pb-2 pt-1 px-1 snap-x snap-mandatory no-scrollbar -mx-2 px-2">
+            {calendarDays.map((item, idx) => {
+              const isSelected = hoveredDay === idx;
+              return (
+                <div
+                  key={idx}
+                  onClick={() => setHoveredDay(idx)}
+                  className={`w-[124px] shrink-0 snap-center p-3.5 rounded-2xl border transition-all duration-300 flex flex-col justify-between h-44 ${
+                    item.isToday
+                      ? "bg-white text-stone-950 border-yellow-300 ring-2 ring-yellow-300 shadow-lg"
+                      : isSelected
+                      ? "bg-white/95 text-stone-950 border-white shadow-md"
+                      : "bg-[#047857]/80 text-white border-white/20"
+                  }`}
+                >
+                  <div className="flex items-center justify-between">
+                    <span className="text-xs font-mono font-bold">{item.day}</span>
+                    <span className={`text-[10px] font-mono ${item.isToday || isSelected ? "text-stone-500" : "text-emerald-200"}`}>
+                      {item.date}
+                    </span>
+                  </div>
+
+                  <div className="flex flex-col items-center justify-center my-auto py-1">
+                    <div className={`w-6 h-6 rounded-full ${item.dotClass}`} />
+                    <span className="text-xs font-mono font-extrabold tracking-wider mt-2">
+                      {item.type}
+                    </span>
+                    <span className={`text-[10px] font-medium text-center ${item.isToday || isSelected ? "text-stone-600" : "text-emerald-100"}`}>
+                      {item.activeName}
+                    </span>
+                  </div>
+
+                  <div className="pt-2 border-t border-white/10 flex items-center justify-center text-[10px] font-mono font-bold">
+                    {item.isToday ? (
+                      <span className="text-amber-800 bg-amber-100 px-2 py-0.5 rounded-full">● Today</span>
+                    ) : item.status === "completed" ? (
+                      <span className="text-emerald-700">✓ Done</span>
+                    ) : item.isCheckIn ? (
+                      <span className="text-purple-800 bg-purple-100 px-2 py-0.5 rounded-full">◇ Review</span>
+                    ) : (
+                      <span className="text-emerald-200/80">Scheduled</span>
+                    )}
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+
+          {/* Selected Day Micro-Routine on Mobile */}
+          <div className="p-4 rounded-2xl bg-black/25 border border-white/20 backdrop-blur-md space-y-1">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-2">
+                <span className={`w-2.5 h-2.5 rounded-full ${calendarDays[hoveredDay].dotClass}`} />
+                <span className="text-xs font-mono uppercase tracking-widest text-yellow-300 font-bold">
+                  {calendarDays[hoveredDay].day} · {calendarDays[hoveredDay].activeName}
+                </span>
+              </div>
+              {calendarDays[hoveredDay].isToday && (
+                <span className="text-[10px] font-mono font-bold text-stone-950 bg-yellow-300 px-2 py-0.5 rounded-full">
+                  TODAY
+                </span>
+              )}
+            </div>
+            <p className="text-xs text-white/95">
+              <strong className="text-white">{calendarDays[hoveredDay].focus}:</strong> {calendarDays[hoveredDay].am}
+            </p>
+          </div>
+        </div>
+
+        {/* DESKTOP 7-DAY BEAUTY CALENDAR (hidden sm:block) */}
+        <div className="hidden sm:block relative">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-7 gap-3.5 sm:gap-4 relative z-10">
             {calendarDays.map((item, idx) => {
               const isHovered = hoveredDay === idx;
@@ -240,8 +317,8 @@ export const Chapter3Calendar: React.FC = () => {
           </div>
         </div>
 
-        {/* Selected Day Micro-Routine Preview */}
-        <div className="p-6 rounded-3xl bg-black/25 border border-white/20 backdrop-blur-md flex flex-col md:flex-row md:items-center justify-between gap-4">
+        {/* Selected Day Micro-Routine Preview (Desktop hidden sm:flex) */}
+        <div className="hidden sm:flex p-6 rounded-3xl bg-black/25 border border-white/20 backdrop-blur-md flex-col md:flex-row md:items-center justify-between gap-4">
           <div className="space-y-1">
             <div className="flex items-center gap-2">
               <span className={`w-3 h-3 rounded-full ${calendarDays[hoveredDay].dotClass}`} />
@@ -261,8 +338,8 @@ export const Chapter3Calendar: React.FC = () => {
           </div>
         </div>
 
-        {/* Core Memorable Quote */}
-        <div className="p-6 rounded-3xl bg-white/10 border border-white/20 text-center max-w-2xl mx-auto space-y-1">
+        {/* Core Memorable Quote (Desktop hidden sm:block) */}
+        <div className="hidden sm:block p-6 rounded-3xl bg-white/10 border border-white/20 text-center max-w-2xl mx-auto space-y-1">
           <span className="text-xs font-mono uppercase tracking-wider text-yellow-300 block font-semibold">
             Intelligent Guidance
           </span>

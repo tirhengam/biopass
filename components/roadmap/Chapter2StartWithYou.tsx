@@ -32,13 +32,156 @@ export const Chapter2StartWithYou: React.FC<Chapter2StartWithYouProps> = ({
             <span className="font-normal italic text-yellow-200">Start with you.</span>
           </h2>
 
-          <p className="text-lg sm:text-2xl text-white/95 font-medium italic">
+          <p className="hidden sm:block text-lg sm:text-2xl text-white/95 font-medium italic">
             Want a routine but don&apos;t know where to start?
           </p>
         </div>
 
-        {/* THREE LARGE VISUAL COLUMNS WITH UPLOADED CHARACTERS */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 sm:gap-10 pt-4">
+        {/* MOBILE VIEW (lg:hidden) — Vertically Stacked 3 Steps: DISCOVERY ↓ PHASES & PLANS ↓ DAILY ACTION */}
+        <div className="lg:hidden flex flex-col space-y-4 pt-2">
+          {/* STEP 1: DISCOVERY */}
+          <div className="relative rounded-3xl p-5 bg-[#FF477E]/85 border border-white/25 shadow-xl space-y-3">
+            <div className="flex items-center justify-between">
+              <span className="text-[10px] font-mono uppercase tracking-widest text-yellow-200 font-bold">
+                01 · DISCOVERY
+              </span>
+              <span className="text-[10px] font-mono text-white/80">Skin Needs</span>
+            </div>
+
+            {/* Visual: Blonde Avatar Pointing to Observations */}
+            <div className="relative w-full h-44 rounded-2xl bg-white/10 border border-white/15 p-2 flex items-end justify-between overflow-hidden">
+              <div className="relative w-28 h-44 -mb-1 drop-shadow-xl shrink-0">
+                <Image
+                  src="/characters/character-pointing-blonde.png"
+                  alt="BioPass user discovering skin needs"
+                  fill
+                  sizes="120px"
+                  className="object-contain object-bottom"
+                />
+              </div>
+
+              <div className="flex flex-col items-end gap-1.5 pb-3 pr-2 z-10">
+                <div className="px-2.5 py-1 rounded-full bg-white/25 border border-white/40 backdrop-blur-md text-white font-mono text-[10px] font-bold shadow flex items-center gap-1.5">
+                  <span>💧</span>
+                  <span>HYDRATION</span>
+                </div>
+                <div className="px-2.5 py-1 rounded-full bg-yellow-300 text-stone-950 font-mono text-[10px] font-extrabold shadow flex items-center gap-1.5 mr-1">
+                  <span className="w-1.5 h-1.5 rounded-full border-2 border-stone-950" />
+                  <span>PORES</span>
+                </div>
+                <div className="px-2.5 py-1 rounded-full bg-white/25 border border-white/40 backdrop-blur-md text-white font-mono text-[10px] font-bold shadow flex items-center gap-1.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-pink-300" />
+                  <span>BREAKOUTS</span>
+                </div>
+              </div>
+            </div>
+
+            <h3 className="text-lg font-bold tracking-tight text-white">
+              Find out your skin needs
+            </h3>
+          </div>
+
+          {/* Connector 1 */}
+          <div className="flex flex-col items-center justify-center py-0.5 text-yellow-200">
+            <span className="text-base font-mono font-bold tracking-wider">↓</span>
+          </div>
+
+          {/* STEP 2: PHASES & PLANS */}
+          <div className="relative rounded-3xl p-5 bg-[#FF477E]/85 border border-white/25 shadow-xl space-y-3">
+            <div className="flex items-center justify-between">
+              <span className="text-[10px] font-mono uppercase tracking-widest text-yellow-200 font-bold">
+                02 · PHASES &amp; PLANS
+              </span>
+              <span className="text-[10px] font-mono text-white/80">Structure</span>
+            </div>
+
+            {/* Visual: Organic Path */}
+            <div className="relative w-full rounded-2xl bg-white/10 border border-white/15 p-3 py-5">
+              <div className="relative flex items-center justify-between px-2">
+                <div className="absolute left-4 right-4 top-3 h-1 bg-white/30 rounded-full" />
+                <div className="absolute left-4 w-3/5 top-3 h-1 bg-yellow-300 rounded-full shadow" />
+
+                <div className="relative z-10 flex flex-col items-center">
+                  <div className="w-6 h-6 rounded-full bg-yellow-300 text-stone-950 flex items-center justify-center text-[9px] font-extrabold shadow">
+                    ✓
+                  </div>
+                  <span className="text-[9px] font-mono font-bold text-white mt-1.5">START</span>
+                </div>
+
+                <div className="relative z-10 flex flex-col items-center">
+                  <div className="w-6 h-6 rounded-full bg-yellow-300 text-stone-950 flex items-center justify-center text-[9px] font-extrabold shadow ring-2 ring-white/30">
+                    01
+                  </div>
+                  <span className="text-[9px] font-mono font-bold text-yellow-200 mt-1.5">PHASE 1</span>
+                </div>
+
+                <div className="relative z-10 flex flex-col items-center">
+                  <div className="w-6 h-6 rounded-full bg-purple-600 text-white flex items-center justify-center text-[9px] font-extrabold shadow ring-2 ring-white">
+                    ◆
+                  </div>
+                  <span className="text-[9px] font-mono font-bold text-white mt-1.5">CHECK-IN</span>
+                </div>
+
+                <div className="relative z-10 flex flex-col items-center">
+                  <div className="w-6 h-6 rounded-full bg-white/20 border border-white/60 text-white flex items-center justify-center text-[9px] font-bold">
+                    02
+                  </div>
+                  <span className="text-[9px] font-mono font-bold text-white/70 mt-1.5">NEXT</span>
+                </div>
+              </div>
+            </div>
+
+            <h3 className="text-lg font-bold tracking-tight text-white">
+              Phases, milestones &amp; check-ins
+            </h3>
+          </div>
+
+          {/* Connector 2 */}
+          <div className="flex flex-col items-center justify-center py-0.5 text-yellow-200">
+            <span className="text-base font-mono font-bold tracking-wider">↓</span>
+          </div>
+
+          {/* STEP 3: DAILY ACTION */}
+          <div className="relative rounded-3xl p-5 bg-[#FF477E]/85 border border-white/25 shadow-xl space-y-3">
+            <div className="flex items-center justify-between">
+              <span className="text-[10px] font-mono uppercase tracking-widest text-yellow-200 font-bold">
+                03 · DAILY ACTION
+              </span>
+              <div className="flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-yellow-300 text-stone-950 text-[10px] font-mono font-extrabold shadow-sm">
+                <Flame className="w-3 h-3 text-orange-600 fill-orange-500" />
+                <span>🔥 9 DAY STREAK</span>
+              </div>
+            </div>
+
+            {/* Visual: 7-day dot rhythm */}
+            <div className="relative w-full rounded-2xl bg-white/10 border border-white/15 p-3">
+              <div className="grid grid-cols-7 gap-1 text-center">
+                {[
+                  { d: "M", dot: "bg-purple-400", act: "NIA" },
+                  { d: "T", dot: "bg-amber-300 ring-2 ring-white", act: "VIT C" },
+                  { d: "W", dot: "bg-sky-300", act: "PEP" },
+                  { d: "T", dot: "border-2 border-white/80 bg-transparent", act: "REST" },
+                  { d: "F", dot: "bg-purple-400", act: "NIA" },
+                  { d: "S", dot: "bg-amber-300", act: "VIT C" },
+                  { d: "S", dot: "border-2 border-white/80 bg-transparent", act: "REST" },
+                ].map((item, idx) => (
+                  <div key={idx} className="p-1 rounded-lg bg-black/20 border border-white/10 flex flex-col items-center">
+                    <span className="text-[8px] font-mono text-white/70">{item.d}</span>
+                    <div className={`w-2.5 h-2.5 rounded-full my-1 ${item.dot}`} />
+                    <span className="text-[7px] font-mono text-white font-bold">{item.act}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <h3 className="text-lg font-bold tracking-tight text-white">
+              Daily consistency &amp; rhythm
+            </h3>
+          </div>
+        </div>
+
+        {/* DESKTOP VIEW (hidden lg:grid) — Three Columns */}
+        <div className="hidden lg:grid grid-cols-3 gap-8 sm:gap-10 pt-4">
           {/* COLUMN 1: LET'S FIND OUT YOUR SKIN NEEDS */}
           <div className="relative rounded-3xl p-7 bg-[#FF477E]/80 border border-white/25 shadow-xl flex flex-col justify-between space-y-6 hover:shadow-2xl transition-all group">
             {/* Visual: Uploaded Blonde 3D Character Pointing to Skin Observations */}

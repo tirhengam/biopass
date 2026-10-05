@@ -41,8 +41,8 @@ export const Chapter1Hero: React.FC<Chapter1HeroProps> = ({
             <span className="font-normal italic text-yellow-300">starts with a plan.</span>
           </h1>
 
-          {/* Supporting Text */}
-          <div className="space-y-3 text-stone-200 text-base sm:text-lg font-light leading-relaxed max-w-xl">
+          {/* Supporting Text - Desktop */}
+          <div className="hidden md:block space-y-3 text-stone-200 text-base sm:text-lg font-light leading-relaxed max-w-xl">
             <p>
               Want to start a skincare routine but don&apos;t know where to begin?
             </p>
@@ -53,6 +53,11 @@ export const Chapter1Hero: React.FC<Chapter1HeroProps> = ({
               BioPass turns your goals into a personalized beauty roadmap — helping you understand what to use, when to use it, and when it&apos;s time to adapt.
             </p>
           </div>
+
+          {/* Supporting Text - Mobile Only */}
+          <p className="md:hidden text-purple-200/90 text-sm font-light leading-relaxed">
+            BioPass turns your goals into a personalized beauty roadmap.
+          </p>
 
           {/* CTA Area — Strictly "TRY THE DEMO" */}
           <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
@@ -66,22 +71,113 @@ export const Chapter1Hero: React.FC<Chapter1HeroProps> = ({
 
             <button
               onClick={onExplore}
-              className="px-8 py-4 rounded-full bg-white/10 border border-white/20 text-white font-mono text-xs uppercase tracking-wider font-semibold hover:bg-white/20 transition-colors flex items-center justify-center gap-2"
+              className="hidden md:flex px-8 py-4 rounded-full bg-white/10 border border-white/20 text-white font-mono text-xs uppercase tracking-wider font-semibold hover:bg-white/20 transition-colors items-center justify-center gap-2"
             >
               <span>See How It Works</span>
               <ChevronDown className="w-4 h-4" />
             </button>
           </div>
 
-          <div className="pt-2 text-xs font-mono tracking-wider text-purple-300/70">
+          <div className="hidden md:block pt-2 text-xs font-mono tracking-wider text-purple-300/70">
             Skincare first. Hair care and more coming next.
           </div>
         </div>
 
         {/* Right Column: Personal BioPass Dashboard + 3D Character */}
         <div className="lg:col-span-6 relative flex justify-center items-center">
-          {/* Main Dashboard Card */}
-          <div className="relative w-full max-w-lg rounded-3xl p-6 sm:p-7 bg-[#2A184D]/90 border border-white/20 backdrop-blur-2xl shadow-[0_25px_60px_rgba(0,0,0,0.5)] space-y-5 z-10">
+          {/* SIMPLIFIED MOBILE DASHBOARD (md:hidden) — Main Visual on Mobile */}
+          <div className="md:hidden w-full max-w-md mx-auto rounded-3xl p-5 bg-[#2A184D]/95 border border-white/20 backdrop-blur-xl shadow-2xl space-y-4">
+            {/* Header: MY BIOPASS & LEVEL 04 */}
+            <div className="flex items-center justify-between pb-2.5 border-b border-white/10">
+              <span className="text-[11px] font-mono uppercase tracking-[0.2em] text-purple-300 font-bold">
+                MY BIOPASS
+              </span>
+              <span className="px-2 py-0.5 rounded-full bg-purple-500/25 border border-purple-400/30 text-[10px] font-mono text-purple-200 font-bold tracking-wider">
+                LEVEL 04
+              </span>
+            </div>
+
+            {/* Current Goals */}
+            <div className="space-y-1.5">
+              <span className="text-[9px] font-mono uppercase tracking-widest text-purple-300/70 font-semibold block">
+                CURRENT GOALS
+              </span>
+              <div className="flex items-center gap-2">
+                <span className="px-3 py-1 rounded-full bg-white/10 border border-white/20 text-xs font-mono font-bold text-white flex items-center gap-1.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-yellow-300" />
+                  LARGE PORES
+                </span>
+                <span className="px-3 py-1 rounded-full bg-white/10 border border-white/20 text-xs font-mono font-bold text-white flex items-center gap-1.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-pink-400" />
+                  ACNE
+                </span>
+              </div>
+            </div>
+
+            {/* Today's Routine / Progress */}
+            <div className="p-3.5 rounded-2xl bg-white/5 border border-white/10 space-y-2">
+              <div className="flex items-center justify-between">
+                <span className="text-[11px] font-mono font-bold text-yellow-300 uppercase tracking-wide">
+                  TODAY&apos;S ROUTINE
+                </span>
+                <span className="text-[10px] font-mono font-bold text-emerald-400 bg-emerald-500/15 px-2 py-0.5 rounded-full border border-emerald-500/30">
+                  6 / 7 DONE
+                </span>
+              </div>
+              <div className="space-y-1.5">
+                <div className="w-full h-2 bg-white/10 rounded-full overflow-hidden">
+                  <div className="h-full bg-gradient-to-r from-yellow-300 via-emerald-400 to-emerald-500 rounded-full" style={{ width: "85%" }} />
+                </div>
+                <div className="flex items-center justify-between text-[9px] font-mono text-purple-200/80">
+                  <span className="text-amber-300">☀ AM: 4/4 Complete</span>
+                  <span className="text-indigo-300">☾ PM: 2/3 Complete</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Streak & Small Calendar */}
+            <div className="grid grid-cols-5 gap-2 pt-0.5">
+              <div className="col-span-2 p-3 rounded-2xl bg-amber-400/15 border border-amber-400/35 flex items-center gap-2.5">
+                <div className="w-8 h-8 rounded-xl bg-amber-400/25 border border-amber-400/40 flex items-center justify-center text-amber-300 shrink-0">
+                  <Flame className="w-4 h-4 text-amber-400 fill-amber-400" />
+                </div>
+                <div>
+                  <div className="text-xl font-extrabold text-white leading-none font-mono">
+                    8
+                  </div>
+                  <div className="text-[9px] font-mono uppercase tracking-wider text-amber-200 font-bold mt-0.5">
+                    STREAK
+                  </div>
+                </div>
+              </div>
+
+              <div className="col-span-3 p-3 rounded-2xl bg-black/25 border border-white/10 flex flex-col justify-between">
+                <div className="flex items-center justify-between text-[9px] font-mono uppercase tracking-widest text-purple-300/80 font-bold mb-1">
+                  <span>WEEK 02</span>
+                  <span className="text-yellow-300">TODAY</span>
+                </div>
+                <div className="grid grid-cols-7 gap-1 text-center">
+                  {[
+                    { d: "M", color: "bg-purple-400" },
+                    { d: "T", color: "bg-amber-400" },
+                    { d: "W", color: "bg-sky-400" },
+                    { d: "T", color: "border border-white/60 bg-transparent" },
+                    { d: "F", color: "bg-yellow-300 ring-2 ring-white", today: true },
+                    { d: "S", color: "bg-white/20" },
+                    { d: "S", color: "bg-white/20" },
+                  ].map((item, idx) => (
+                    <div key={idx} className={`flex flex-col items-center ${item.today ? "font-bold text-yellow-300" : "text-purple-200/70"}`}>
+                      <span className="text-[8px] font-mono">{item.d}</span>
+                      <div className={`w-2 h-2 rounded-full mt-1 ${item.color}`} />
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* DESKTOP DASHBOARD (hidden md:block) */}
+          <div className="hidden md:block relative w-full max-w-lg rounded-3xl p-6 sm:p-7 bg-[#2A184D]/90 border border-white/20 backdrop-blur-2xl shadow-[0_25px_60px_rgba(0,0,0,0.5)] space-y-5 z-10">
             {/* Header: MY BIOPASS & LEVEL 04 */}
             <div className="flex items-center justify-between pb-3 border-b border-white/10">
               <span className="text-[11px] font-mono uppercase tracking-[0.2em] text-purple-300/90 font-bold">
@@ -315,12 +411,13 @@ export const Chapter1Hero: React.FC<Chapter1HeroProps> = ({
             </div>
           </div>
 
-          {/* UPLOADED 3D CHARACTER (Delighted / Loving their routine) */}
-          <div className="hidden sm:block absolute -top-12 -right-8 w-44 lg:w-52 aspect-[1/1] z-20 pointer-events-none drop-shadow-2xl">
+          {/* UPLOADED 3D CHARACTER (Delighted / Loving their routine) — Desktop Only (hidden md:block) */}
+          <div className="hidden md:block absolute -top-12 -right-8 w-44 lg:w-52 aspect-[1/1] z-20 pointer-events-none drop-shadow-2xl">
             <Image
               src="/characters/character-heart-eyes.png"
               alt="Delighted BioPass user loving their personalized beauty roadmap"
               fill
+              sizes="(min-width: 1024px) 208px, 176px"
               className="object-contain"
             />
           </div>

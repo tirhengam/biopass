@@ -80,8 +80,101 @@ export const Chapter6Final: React.FC<Chapter6FinalProps> = ({
           </p>
         </div>
 
-        {/* 3 ELEGANT, HIGHLY VISUAL COSMETIC PRODUCT MATCH CARDS */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 pt-2">
+        {/* MOBILE VIEW (md:hidden) — Stacked with Primary 94% Match Card */}
+        <div className="md:hidden flex flex-col space-y-3.5 pt-2">
+          {/* PRIMARY MATCH CARD: 94% */}
+          <div className="p-5 rounded-3xl bg-[#2A184D] border-2 border-yellow-300/80 shadow-[0_0_30px_rgba(250,204,21,0.25)] space-y-4">
+            <div className="flex items-center justify-between pb-2.5 border-b border-white/10">
+              <span className="text-[10px] font-mono uppercase tracking-widest text-yellow-300 font-bold">
+                TOP MATCH · BARRIER RESTORATION
+              </span>
+              <div className="px-2.5 py-0.5 rounded-full bg-emerald-500 text-stone-950 text-xs font-mono font-black shadow flex items-center gap-1">
+                <span>94%</span>
+                <span className="text-[9px]">MATCH</span>
+              </div>
+            </div>
+
+            <div className="flex items-center gap-3.5">
+              <div className="w-14 h-14 rounded-2xl bg-gradient-to-tr from-purple-500 to-indigo-500 p-[2px] shadow shrink-0">
+                <div className="w-full h-full bg-[#1B0E33] rounded-[14px] flex items-center justify-center text-purple-300">
+                  <svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                    <rect x="4" y="10" width="16" height="11" rx="3" />
+                    <path d="M6 10V7a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v3" />
+                  </svg>
+                </div>
+              </div>
+              <div>
+                <h4 className="text-sm font-bold text-white tracking-tight">
+                  Ceramide Barrier Lipid Fluid
+                </h4>
+                <span className="text-[10px] font-mono text-purple-200/80">
+                  Foundation Phase
+                </span>
+              </div>
+            </div>
+
+            {/* Very Short Reasons */}
+            <div className="space-y-1.5 pt-1">
+              <div className="flex items-center gap-2 text-xs font-mono text-purple-200">
+                <span className="w-3.5 h-3.5 rounded-full bg-emerald-500/20 text-emerald-300 flex items-center justify-center text-[9px] font-bold">✓</span>
+                <span>For your goals</span>
+              </div>
+              <div className="flex items-center gap-2 text-xs font-mono text-purple-200">
+                <span className="w-3.5 h-3.5 rounded-full bg-emerald-500/20 text-emerald-300 flex items-center justify-center text-[9px] font-bold">✓</span>
+                <span>Fits your routine</span>
+              </div>
+              <div className="flex items-center gap-2 text-xs font-mono text-purple-200">
+                <span className="w-3.5 h-3.5 rounded-full bg-emerald-500/20 text-emerald-300 flex items-center justify-center text-[9px] font-bold">✓</span>
+                <span>Right for this phase</span>
+              </div>
+            </div>
+          </div>
+
+          {/* SECONDARY MATCH 2: 89% */}
+          <div className="p-3.5 rounded-2xl bg-[#2A184D]/70 border border-white/15 flex items-center justify-between">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-amber-400 to-orange-500 p-[1.5px] shrink-0">
+                <div className="w-full h-full bg-[#1B0E33] rounded-[10px] flex items-center justify-center text-amber-300">
+                  <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+                    <path d="m14 4 6 6-9 9H5v-6l9-9Z" />
+                    <circle cx="5" cy="19" r="2" />
+                  </svg>
+                </div>
+              </div>
+              <div>
+                <div className="text-xs font-bold text-white">10% Ascorbyl Glucoside Serum</div>
+                <div className="text-[10px] font-mono text-purple-300/80">✓ Morning Active · Tone</div>
+              </div>
+            </div>
+            <span className="text-xs font-mono font-bold text-emerald-300 bg-emerald-500/20 px-2 py-0.5 rounded-full">
+              89%
+            </span>
+          </div>
+
+          {/* SECONDARY MATCH 3: 86% */}
+          <div className="p-3.5 rounded-2xl bg-[#2A184D]/70 border border-white/15 flex items-center justify-between">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-sky-400 to-blue-600 p-[1.5px] shrink-0">
+                <div className="w-full h-full bg-[#1B0E33] rounded-[10px] flex items-center justify-center text-sky-300">
+                  <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+                    <rect x="7" y="9" width="10" height="13" rx="2" />
+                    <path d="M10 9V5a2 2 0 0 1 4 0v4" />
+                  </svg>
+                </div>
+              </div>
+              <div>
+                <div className="text-xs font-bold text-white">Multi-Peptide Matrix Emulsion</div>
+                <div className="text-[10px] font-mono text-purple-300/80">✓ Evening Renewal · Elasticity</div>
+              </div>
+            </div>
+            <span className="text-xs font-mono font-bold text-emerald-300 bg-emerald-500/20 px-2 py-0.5 rounded-full">
+              86%
+            </span>
+          </div>
+        </div>
+
+        {/* DESKTOP VIEW (hidden md:grid) — 3 ELEGANT PRODUCT MATCH CARDS */}
+        <div className="hidden md:grid grid-cols-3 gap-6 sm:gap-8 pt-2">
           {matchProducts.map((prod, idx) => (
             <div
               key={idx}
@@ -155,9 +248,10 @@ export const Chapter6Final: React.FC<Chapter6FinalProps> = ({
         </div>
 
         {/* Philosophy Line */}
-        <div className="text-center pt-2">
-          <p className="text-xl sm:text-2xl font-light text-white italic max-w-2xl mx-auto">
-            &ldquo;You choose. BioPass helps you understand the choice.&rdquo;
+        <div className="text-center pt-2 space-y-1">
+          <p className="text-xl sm:text-2xl font-light text-white italic max-w-2xl mx-auto leading-snug">
+            You choose. <br className="sm:hidden" />
+            <span className="text-yellow-200">BioPass helps you understand the choice.</span>
           </p>
         </div>
 
@@ -165,7 +259,7 @@ export const Chapter6Final: React.FC<Chapter6FinalProps> = ({
         <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-4">
           <a
             href={BIOPASS_APP_URL}
-            className="px-9 py-4 rounded-full bg-yellow-400 text-stone-950 font-mono text-xs uppercase tracking-wider font-extrabold hover:bg-yellow-300 transition-all shadow-[0_0_35px_rgba(250,204,21,0.4)] flex items-center gap-3 group"
+            className="w-full sm:w-auto px-9 py-4 rounded-full bg-yellow-400 text-stone-950 font-mono text-xs uppercase tracking-wider font-extrabold hover:bg-yellow-300 transition-all shadow-[0_0_35px_rgba(250,204,21,0.4)] flex items-center justify-center gap-3 group text-center"
           >
             <span>TRY THE DEMO</span>
             <ArrowUpRight className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />

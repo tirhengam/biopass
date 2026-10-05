@@ -116,8 +116,93 @@ export const Chapter5AdaptLearn: React.FC = () => {
 
         {/* VISUAL HERO: HORIZONTAL LONG-TERM ROADMAP + CALENDAR OVERVIEW */}
         <div className="space-y-6">
-          {/* Main Visual Roadmap Timeline */}
-          <div className="p-6 sm:p-8 rounded-3xl bg-black/25 border border-white/20 backdrop-blur-xl shadow-2xl space-y-6">
+          {/* MOBILE VIEW (sm:hidden) — Horizontal Scrollable Timeline */}
+          <div className="sm:hidden p-4 rounded-3xl bg-black/25 border border-white/20 backdrop-blur-xl shadow-xl space-y-4">
+            <div className="flex items-center justify-between text-[10px] font-mono uppercase tracking-widest text-indigo-200 font-bold px-1">
+              <span className="text-white">MY SKIN GOALS</span>
+              <span className="text-yellow-300">← Swipe timeline →</span>
+            </div>
+
+            {/* Horizontally Scrollable Timeline Body */}
+            <div className="overflow-x-auto pb-2 pt-1 no-scrollbar -mx-2 px-2">
+              <div className="min-w-[560px] space-y-3">
+                {/* Header Months */}
+                <div className="grid grid-cols-12 pb-2 border-b border-white/15 text-[11px] font-mono uppercase tracking-widest text-indigo-200 font-bold">
+                  <div className="col-span-4 text-white">GOAL</div>
+                  <div className="col-span-8 grid grid-cols-3 text-center">
+                    <span className="text-yellow-300 font-extrabold">OCTOBER</span>
+                    <span>NOVEMBER</span>
+                    <span>DECEMBER</span>
+                  </div>
+                </div>
+
+                {/* Goal Rows */}
+                {roadmapGoals.map((goal, idx) => (
+                  <div
+                    key={goal.id}
+                    onClick={() => setActiveGoal(idx)}
+                    className={`grid grid-cols-12 items-center p-2 rounded-xl transition-all cursor-pointer ${
+                      activeGoal === idx
+                        ? "bg-white/15 ring-2 ring-yellow-300/80 shadow"
+                        : "hover:bg-white/5"
+                    }`}
+                  >
+                    <div className="col-span-4 flex items-center gap-2">
+                      <span className={`w-2.5 h-2.5 rounded-full ${goal.color}`} />
+                      <span className="text-xs font-mono font-bold text-white">
+                        {goal.name}
+                      </span>
+                    </div>
+
+                    <div className="col-span-8 relative h-8 flex items-center px-1">
+                      <div className="absolute inset-0 grid grid-cols-3 pointer-events-none opacity-20 border-l border-white/40">
+                        <div className="border-r border-white/40" />
+                        <div className="border-r border-white/40" />
+                        <div />
+                      </div>
+
+                      <div
+                        style={{ left: goal.leftOffset, width: goal.width }}
+                        className={`absolute h-6 rounded-full border ${goal.barColor} backdrop-blur-md flex items-center justify-between px-2 shadow-sm`}
+                      >
+                        <div className="flex items-center gap-1">
+                          <span className={`w-2.5 h-2.5 rounded-full ${goal.dotColor} ring-1 shadow`} />
+                          <span className="text-[9px] font-mono font-bold text-white">
+                            {goal.start}
+                          </span>
+                        </div>
+                        <div className="flex-1 mx-1.5 h-0.5 bg-white/40 rounded-full" />
+                        <div className="flex items-center gap-1">
+                          <span className="text-[9px] font-mono font-bold text-yellow-200">
+                            {goal.checkpoint}
+                          </span>
+                          <span className="w-2.5 h-2.5 rounded-full bg-yellow-300 ring-1 ring-white shadow" />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Selected Goal Inspector for Mobile */}
+            <div className="pt-2 border-t border-white/15 space-y-1.5 text-xs font-mono">
+              <div className="flex items-center justify-between">
+                <span className="text-yellow-300 font-bold uppercase">
+                  {roadmapGoals[activeGoal].name}
+                </span>
+                <span className="px-2 py-0.5 rounded-full bg-white/10 text-[10px] text-white font-bold">
+                  {roadmapGoals[activeGoal].duration}
+                </span>
+              </div>
+              <p className="text-[11px] text-indigo-100 font-light leading-snug">
+                {roadmapGoals[activeGoal].details}
+              </p>
+            </div>
+          </div>
+
+          {/* DESKTOP VIEW (hidden sm:block) — Main Visual Roadmap Timeline */}
+          <div className="hidden sm:block p-6 sm:p-8 rounded-3xl bg-black/25 border border-white/20 backdrop-blur-xl shadow-2xl space-y-6">
             {/* Timeline Header Months */}
             <div className="grid grid-cols-12 pb-3 border-b border-white/15 text-xs font-mono uppercase tracking-widest text-indigo-200 font-bold">
               <div className="col-span-4 sm:col-span-3 text-white">MY SKIN GOALS</div>
@@ -202,8 +287,8 @@ export const Chapter5AdaptLearn: React.FC = () => {
             </div>
           </div>
 
-          {/* LOWER SECTION: COMPACT CALENDAR OVERVIEW CONNECTING GOALS TO ROUTINES */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+          {/* LOWER SECTION: COMPACT CALENDAR OVERVIEW CONNECTING GOALS TO ROUTINES (hidden sm:grid) */}
+          <div className="hidden sm:grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
             {/* Left: Explanation */}
             <div className="lg:col-span-4 space-y-2">
               <span className="text-[11px] font-mono uppercase tracking-widest text-yellow-300 font-bold block">
