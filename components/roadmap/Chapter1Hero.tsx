@@ -15,11 +15,13 @@ export const Chapter1Hero: React.FC<Chapter1HeroProps> = ({
   return (
     <section
       id="section-promise"
-      className="relative min-h-screen flex flex-col justify-between pt-28 sm:pt-36 pb-16 px-6 sm:px-12 bg-[#1B0E33] text-white overflow-hidden transition-colors duration-700"
+      className="relative min-h-screen flex flex-col justify-between pt-28 sm:pt-36 pb-16 px-6 sm:px-12 bg-[#1B0E33] text-white overflow-hidden transition-none md:transition-colors md:duration-700"
     >
-      {/* Background Soft Glows */}
-      <div className="absolute top-1/4 left-1/4 -translate-x-1/2 w-[550px] h-[550px] bg-purple-600/20 rounded-full blur-[140px] pointer-events-none" />
-      <div className="absolute bottom-10 right-1/4 w-[450px] h-[450px] bg-pink-500/15 rounded-full blur-[120px] pointer-events-none" />
+      {/* Background Soft Glows — Lightweight static gradient on mobile, Gaussian blur on desktop */}
+      <div className="hidden md:block absolute top-1/4 left-1/4 -translate-x-1/2 w-[550px] h-[550px] bg-purple-600/20 rounded-full blur-[140px] pointer-events-none" />
+      <div className="hidden md:block absolute bottom-10 right-1/4 w-[450px] h-[450px] bg-pink-500/15 rounded-full blur-[120px] pointer-events-none" />
+      <div className="md:hidden absolute top-1/4 left-1/4 -translate-x-1/2 w-64 h-64 rounded-full pointer-events-none [background:radial-gradient(circle,rgba(147,51,234,0.18)_0%,transparent_70%)]" />
+      <div className="md:hidden absolute bottom-10 right-1/4 w-60 h-60 rounded-full pointer-events-none [background:radial-gradient(circle,rgba(236,72,153,0.15)_0%,transparent_70%)]" />
 
       <div className="max-w-6xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center my-auto z-10">
         {/* Left Column: Editorial Headline & Copy */}
@@ -86,7 +88,7 @@ export const Chapter1Hero: React.FC<Chapter1HeroProps> = ({
         {/* Right Column: Personal BioPass Dashboard + 3D Character */}
         <div className="lg:col-span-6 relative flex justify-center items-center">
           {/* SIMPLIFIED MOBILE DASHBOARD (md:hidden) — Main Visual on Mobile */}
-          <div className="md:hidden w-full max-w-md mx-auto rounded-3xl p-5 bg-[#2A184D]/95 border border-white/20 backdrop-blur-xl shadow-2xl space-y-4">
+          <div className="md:hidden w-full max-w-md mx-auto rounded-3xl p-5 bg-[#2A184D]/95 border border-white/20 shadow-2xl space-y-4">
             {/* Header: MY BIOPASS & LEVEL 04 */}
             <div className="flex items-center justify-between pb-2.5 border-b border-white/10">
               <span className="text-[11px] font-mono uppercase tracking-[0.2em] text-purple-300 font-bold">

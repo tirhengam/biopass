@@ -27,12 +27,12 @@ export const Navbar: React.FC<NavbarProps> = ({
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 px-4 sm:px-8 py-4 sm:py-5 transition-all duration-500">
+    <header className="fixed top-0 left-0 right-0 z-50 px-4 sm:px-8 py-4 sm:py-5 transition-colors duration-200 md:transition-all md:duration-500">
       <div
-        className={`max-w-6xl mx-auto rounded-full px-5 sm:px-7 py-3 transition-all duration-500 flex items-center justify-between border ${
+        className={`max-w-6xl mx-auto rounded-full px-5 sm:px-7 py-3 transition-colors duration-200 md:transition-all md:duration-500 flex items-center justify-between border ${
           isLightSection
-            ? "bg-white/80 border-stone-900/10 text-[#1B0E33] shadow-[0_8px_30px_rgba(0,0,0,0.08)] backdrop-blur-xl"
-            : "bg-[#1B0E33]/70 border-white/15 text-white shadow-[0_8px_30px_rgba(0,0,0,0.35)] backdrop-blur-xl"
+            ? "bg-white/95 border-stone-900/10 text-[#1B0E33] shadow-[0_8px_30px_rgba(0,0,0,0.08)] md:bg-white/80 md:backdrop-blur-xl"
+            : "bg-[#1B0E33]/95 border-white/15 text-white shadow-[0_8px_30px_rgba(0,0,0,0.35)] md:bg-[#1B0E33]/70 md:backdrop-blur-xl"
         }`}
       >
         {/* Left: Brand */}
@@ -128,7 +128,7 @@ export const Navbar: React.FC<NavbarProps> = ({
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
         <div
-          className={`sm:hidden mt-2 rounded-3xl p-6 border transition-all duration-300 backdrop-blur-2xl shadow-2xl ${
+          className={`sm:hidden mt-2 rounded-3xl p-6 border transition-all duration-300 shadow-2xl ${
             isLightSection
               ? "bg-white/95 border-stone-900/10 text-[#1B0E33]"
               : "bg-[#1B0E33]/95 border-white/15 text-white"

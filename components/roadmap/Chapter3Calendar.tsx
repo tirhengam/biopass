@@ -99,11 +99,13 @@ export const Chapter3Calendar: React.FC = () => {
   return (
     <section
       id="section-calendar"
-      className="relative min-h-screen flex flex-col justify-between py-24 sm:py-32 px-6 sm:px-12 bg-[#059669] text-white transition-colors duration-700 overflow-hidden"
+      className="relative min-h-screen flex flex-col justify-between py-24 sm:py-32 px-6 sm:px-12 bg-[#059669] text-white transition-none md:transition-colors md:duration-700 overflow-hidden"
     >
-      {/* Background Soft Glows */}
-      <div className="absolute top-1/3 -right-32 w-96 h-96 bg-emerald-400/20 rounded-full blur-[140px] pointer-events-none" />
-      <div className="absolute bottom-20 -left-32 w-96 h-96 bg-teal-300/20 rounded-full blur-[120px] pointer-events-none" />
+      {/* Background Soft Glows — Lightweight static gradient on mobile, Gaussian blur on desktop */}
+      <div className="hidden md:block absolute top-1/3 -right-32 w-96 h-96 bg-emerald-400/20 rounded-full blur-[140px] pointer-events-none" />
+      <div className="hidden md:block absolute bottom-20 -left-32 w-96 h-96 bg-teal-300/20 rounded-full blur-[120px] pointer-events-none" />
+      <div className="md:hidden absolute top-1/3 -right-16 w-56 h-56 rounded-full pointer-events-none [background:radial-gradient(circle,rgba(52,211,153,0.18)_0%,transparent_70%)]" />
+      <div className="md:hidden absolute bottom-20 -left-16 w-56 h-56 rounded-full pointer-events-none [background:radial-gradient(circle,rgba(94,234,212,0.18)_0%,transparent_70%)]" />
 
       <div className="max-w-6xl mx-auto w-full space-y-12 my-auto z-10">
         {/* Section Header: Title on Left, Uploaded Reading Avatar on Right */}
@@ -151,7 +153,7 @@ export const Chapter3Calendar: React.FC = () => {
           </div>
 
           {/* Color Legend (scrollable on mobile) */}
-          <div className="flex items-center gap-3 sm:gap-4 text-xs font-mono bg-black/20 px-3.5 sm:px-4 py-2 rounded-full border border-white/20 backdrop-blur-md overflow-x-auto no-scrollbar whitespace-nowrap">
+          <div className="flex items-center gap-3 sm:gap-4 text-xs font-mono bg-black/35 sm:bg-black/20 px-3.5 sm:px-4 py-2 rounded-full border border-white/20 sm:backdrop-blur-md overflow-x-auto no-scrollbar whitespace-nowrap">
             <div className="flex items-center gap-1.5">
               <span className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-purple-400 shadow-sm" />
               <span className="text-white font-medium text-[11px] sm:text-xs">Niacinamide</span>
@@ -227,7 +229,7 @@ export const Chapter3Calendar: React.FC = () => {
           </div>
 
           {/* Selected Day Micro-Routine on Mobile */}
-          <div className="p-4 rounded-2xl bg-black/25 border border-white/20 backdrop-blur-md space-y-1">
+          <div className="p-4 rounded-2xl bg-black/35 sm:bg-black/25 border border-white/20 sm:backdrop-blur-md space-y-1">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2">
                 <span className={`w-2.5 h-2.5 rounded-full ${calendarDays[hoveredDay].dotClass}`} />

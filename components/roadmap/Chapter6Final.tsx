@@ -56,11 +56,13 @@ export const Chapter6Final: React.FC<Chapter6FinalProps> = ({
   return (
     <section
       id="section-final"
-      className="relative min-h-screen flex flex-col justify-between py-24 sm:py-32 px-6 sm:px-12 bg-[#1B0E33] text-white transition-colors duration-700 overflow-hidden"
+      className="relative min-h-screen flex flex-col justify-between py-24 sm:py-32 px-6 sm:px-12 bg-[#1B0E33] text-white transition-none md:transition-colors md:duration-700 overflow-hidden"
     >
-      {/* Background Soft Glows */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[700px] h-[700px] bg-purple-600/20 rounded-full blur-[160px] pointer-events-none" />
-      <div className="absolute bottom-20 right-10 w-[450px] h-[450px] bg-pink-500/15 rounded-full blur-[140px] pointer-events-none" />
+      {/* Background Soft Glows — Lightweight static gradient on mobile, Gaussian blur on desktop */}
+      <div className="hidden md:block absolute top-1/4 left-1/2 -translate-x-1/2 w-[700px] h-[700px] bg-purple-600/20 rounded-full blur-[160px] pointer-events-none" />
+      <div className="hidden md:block absolute bottom-20 right-10 w-[450px] h-[450px] bg-pink-500/15 rounded-full blur-[140px] pointer-events-none" />
+      <div className="md:hidden absolute top-1/4 left-1/2 -translate-x-1/2 w-72 h-72 rounded-full pointer-events-none [background:radial-gradient(circle,rgba(147,51,234,0.18)_0%,transparent_70%)]" />
+      <div className="md:hidden absolute bottom-20 right-6 w-60 h-60 rounded-full pointer-events-none [background:radial-gradient(circle,rgba(236,72,153,0.15)_0%,transparent_70%)]" />
 
       <div className="max-w-6xl mx-auto w-full space-y-14 my-auto z-10">
         {/* Section Header */}

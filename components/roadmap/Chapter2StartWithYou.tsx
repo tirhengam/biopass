@@ -14,10 +14,11 @@ export const Chapter2StartWithYou: React.FC<Chapter2StartWithYouProps> = ({
   return (
     <section
       id="section-start-with-you"
-      className="relative min-h-screen flex flex-col justify-between py-24 sm:py-32 px-6 sm:px-12 bg-[#FF5C8A] text-white transition-colors duration-700 overflow-hidden"
+      className="relative min-h-screen flex flex-col justify-between py-24 sm:py-32 px-6 sm:px-12 bg-[#FF5C8A] text-white transition-none md:transition-colors md:duration-700 overflow-hidden"
     >
-      {/* Background Soft Lighting */}
-      <div className="absolute top-1/4 left-1/3 w-[500px] h-[500px] bg-white/10 rounded-full blur-[140px] pointer-events-none" />
+      {/* Background Soft Lighting — Lightweight static gradient on mobile, Gaussian blur on desktop */}
+      <div className="hidden md:block absolute top-1/4 left-1/3 w-[500px] h-[500px] bg-white/10 rounded-full blur-[140px] pointer-events-none" />
+      <div className="md:hidden absolute top-1/4 left-1/3 w-64 h-64 rounded-full pointer-events-none [background:radial-gradient(circle,rgba(255,255,255,0.10)_0%,transparent_70%)]" />
 
       <div className="max-w-6xl mx-auto w-full space-y-16 my-auto z-10">
         {/* Section Header */}
@@ -65,7 +66,7 @@ export const Chapter2StartWithYou: React.FC<Chapter2StartWithYouProps> = ({
               </div>
 
               <div className="flex flex-col items-end gap-1.5 pb-3 pr-2 z-10">
-                <div className="px-2.5 py-1 rounded-full bg-white/25 border border-white/40 backdrop-blur-md text-white font-mono text-[10px] font-bold shadow flex items-center gap-1.5">
+                <div className="px-2.5 py-1 rounded-full bg-white/30 border border-white/40 text-white font-mono text-[10px] font-bold shadow flex items-center gap-1.5">
                   <span>💧</span>
                   <span>HYDRATION</span>
                 </div>
@@ -73,7 +74,7 @@ export const Chapter2StartWithYou: React.FC<Chapter2StartWithYouProps> = ({
                   <span className="w-1.5 h-1.5 rounded-full border-2 border-stone-950" />
                   <span>PORES</span>
                 </div>
-                <div className="px-2.5 py-1 rounded-full bg-white/25 border border-white/40 backdrop-blur-md text-white font-mono text-[10px] font-bold shadow flex items-center gap-1.5">
+                <div className="px-2.5 py-1 rounded-full bg-white/30 border border-white/40 text-white font-mono text-[10px] font-bold shadow flex items-center gap-1.5">
                   <span className="w-1.5 h-1.5 rounded-full bg-pink-300" />
                   <span>BREAKOUTS</span>
                 </div>

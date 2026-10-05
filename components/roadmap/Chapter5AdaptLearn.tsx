@@ -89,11 +89,13 @@ export const Chapter5AdaptLearn: React.FC = () => {
   return (
     <section
       id="section-adapt"
-      className="relative min-h-screen flex flex-col justify-between py-24 sm:py-32 px-6 sm:px-12 bg-[#4F46E5] text-white transition-colors duration-700 overflow-hidden"
+      className="relative min-h-screen flex flex-col justify-between py-24 sm:py-32 px-6 sm:px-12 bg-[#4F46E5] text-white transition-none md:transition-colors md:duration-700 overflow-hidden"
     >
-      {/* Background Lighting */}
-      <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-indigo-400/20 rounded-full blur-[140px] pointer-events-none" />
-      <div className="absolute bottom-10 right-1/4 w-[400px] h-[400px] bg-purple-400/20 rounded-full blur-[120px] pointer-events-none" />
+      {/* Background Lighting — Lightweight static gradient on mobile, Gaussian blur on desktop */}
+      <div className="hidden md:block absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-indigo-400/20 rounded-full blur-[140px] pointer-events-none" />
+      <div className="hidden md:block absolute bottom-10 right-1/4 w-[400px] h-[400px] bg-purple-400/20 rounded-full blur-[120px] pointer-events-none" />
+      <div className="md:hidden absolute top-1/4 left-1/4 w-64 h-64 rounded-full pointer-events-none [background:radial-gradient(circle,rgba(129,140,248,0.18)_0%,transparent_70%)]" />
+      <div className="md:hidden absolute bottom-10 right-1/4 w-56 h-56 rounded-full pointer-events-none [background:radial-gradient(circle,rgba(192,132,252,0.18)_0%,transparent_70%)]" />
 
       <div className="max-w-6xl mx-auto w-full space-y-12 my-auto z-10">
         {/* Section Header */}
@@ -117,7 +119,7 @@ export const Chapter5AdaptLearn: React.FC = () => {
         {/* VISUAL HERO: HORIZONTAL LONG-TERM ROADMAP + CALENDAR OVERVIEW */}
         <div className="space-y-6">
           {/* MOBILE VIEW (sm:hidden) — Horizontal Scrollable Timeline */}
-          <div className="sm:hidden p-4 rounded-3xl bg-black/25 border border-white/20 backdrop-blur-xl shadow-xl space-y-4">
+          <div className="sm:hidden p-4 rounded-3xl bg-black/40 border border-white/20 shadow-xl space-y-4">
             <div className="flex items-center justify-between text-[10px] font-mono uppercase tracking-widest text-indigo-200 font-bold px-1">
               <span className="text-white">MY SKIN GOALS</span>
               <span className="text-yellow-300">← Swipe timeline →</span>
@@ -163,7 +165,7 @@ export const Chapter5AdaptLearn: React.FC = () => {
 
                       <div
                         style={{ left: goal.leftOffset, width: goal.width }}
-                        className={`absolute h-6 rounded-full border ${goal.barColor} backdrop-blur-md flex items-center justify-between px-2 shadow-sm`}
+                        className={`absolute h-6 rounded-full border ${goal.barColor} flex items-center justify-between px-2 shadow-sm`}
                       >
                         <div className="flex items-center gap-1">
                           <span className={`w-2.5 h-2.5 rounded-full ${goal.dotColor} ring-1 shadow`} />

@@ -35,11 +35,13 @@ export const Chapter4Today: React.FC = () => {
   return (
     <section
       id="section-today"
-      className="relative min-h-screen flex flex-col justify-between py-24 sm:py-32 px-6 sm:px-12 bg-[#FDE047] text-[#1B0E33] transition-colors duration-700 overflow-hidden"
+      className="relative min-h-screen flex flex-col justify-between py-24 sm:py-32 px-6 sm:px-12 bg-[#FDE047] text-[#1B0E33] transition-none md:transition-colors md:duration-700 overflow-hidden"
     >
-      {/* Soft Ambient Background Lighting */}
-      <div className="absolute top-1/4 right-1/4 w-[500px] h-[500px] bg-white/40 rounded-full blur-[140px] pointer-events-none" />
-      <div className="absolute bottom-10 left-10 w-[400px] h-[400px] bg-amber-300/40 rounded-full blur-[120px] pointer-events-none" />
+      {/* Soft Ambient Background Lighting — Lightweight static gradient on mobile, Gaussian blur on desktop */}
+      <div className="hidden md:block absolute top-1/4 right-1/4 w-[500px] h-[500px] bg-white/40 rounded-full blur-[140px] pointer-events-none" />
+      <div className="hidden md:block absolute bottom-10 left-10 w-[400px] h-[400px] bg-amber-300/40 rounded-full blur-[120px] pointer-events-none" />
+      <div className="md:hidden absolute top-1/4 right-1/4 w-64 h-64 rounded-full pointer-events-none [background:radial-gradient(circle,rgba(255,255,255,0.35)_0%,transparent_70%)]" />
+      <div className="md:hidden absolute bottom-10 left-10 w-56 h-56 rounded-full pointer-events-none [background:radial-gradient(circle,rgba(252,211,77,0.35)_0%,transparent_70%)]" />
 
       <div className="max-w-6xl mx-auto w-full space-y-12 my-auto z-10">
         {/* Section Header: THE PROBLEM */}
